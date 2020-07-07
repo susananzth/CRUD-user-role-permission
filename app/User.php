@@ -9,6 +9,10 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+    // Indicador de que el modelo User esta unido a el modelo Role en una realcion de muchos a muchos.
+    public function roles(){
+      return $this->belongsToMany('App\Role');
+    }
 
     /**
      * The attributes that are mass assignable.
