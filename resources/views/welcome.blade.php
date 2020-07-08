@@ -9,8 +9,8 @@
     <meta name="keywords" content="Laravel, Laravel 7, bootstrap, bootstrap 4.5, roles, usuarios, admin"/>
     <meta name="author" content="Susana Piñero Rodríguez" />
     <meta name="copyright" content="Susana Piñero Rodríguez" />
-    <META name="reply-to" content="susananzth@gmail.com">
-    <LINK REV="made" href="mailto:susananzth@gmail.com">
+    <meta name="reply-to" content="susananzth@gmail.com">
+    <link REV="made" href="mailto:susananzth@gmail.com">
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="expires" content="43200"/>
     <meta name="Resource-type" content="Manual">
@@ -21,23 +21,18 @@
     <title>Laravel 7 | SusanaNzth</title>
     <!-- Ícono -->
     <link rel="icon" type="image/x-icon" href="{{asset('/img/favicon.ico')}}" />
-
     <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Estilos -->
     <link rel="stylesheet" href="{{asset('/css/normalize.css')}}">
     <link rel="stylesheet" href="{{asset('/css/theme.css')}}"/>
     <link rel="stylesheet" href="{{asset('/css/style.css')}}">
-
 </head>
 <body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">SusanaNzth</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -54,9 +49,10 @@
     <!-- Masthead-->
     <header class="masthead">
         <div class="container d-flex h-100 align-items-center">
-            <div class="mx-auto text-center">
-                <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
-                <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
+            <div class="mx-auto text-center bg-title">
+                <h1 class="mx-auto my-0 text-uppercase">CRUD</h1>
+                <h1 class="mx-auto my-0 text-uppercase">role-user</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">Web system with laravel 7 and Start Bootstrap interface.</h2>
                 <a class="btn btn-primary js-scroll-trigger" href="#about">Get Started</a>
             </div>
         </div>
@@ -66,7 +62,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h2 class="text-white mb-4">Built with Bootstrap 4</h2>
+                    <h2 class="text-white mb-4">Built with Laravel 7 and Bootstrap 4</h2>
                     <p class="text-white-50">
                         Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
                         <a href="https://startbootstrap.com/template-overviews/grayscale/">the preview page</a>
@@ -122,21 +118,6 @@
             </div>
         </div>
     </section>
-    <!-- Signup-->
-    <section class="signup-section" id="signup">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-lg-8 mx-auto text-center">
-                    <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                    <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
-                    <form class="form-inline d-flex">
-                        <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" type="email" placeholder="Enter email address..." />
-                        <button class="btn btn-primary mx-auto" type="submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- Contact-->
     <section class="contact-section bg-black">
         <div class="container">
@@ -144,43 +125,45 @@
                 <div class="col-md-4 mb-3 mb-md-0">
                     <div class="card py-4 h-100">
                         <div class="card-body text-center">
-                            <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                            <i class="fa fa-map text-primary mb-2"></i>
                             <h4 class="text-uppercase m-0">Address</h4>
                             <hr class="my-4" />
-                            <div class="small text-black-50">4923 Market Street, Orlando FL</div>
+                            <div class="small text-black-50">Lima, Perú</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3 mb-md-0">
                     <div class="card py-4 h-100">
                         <div class="card-body text-center">
-                            <i class="fas fa-envelope text-primary mb-2"></i>
+                            <i class="fa fa-envelope text-primary mb-2"></i>
                             <h4 class="text-uppercase m-0">Email</h4>
                             <hr class="my-4" />
-                            <div class="small text-black-50"><a href="#!">hello@yourdomain.com</a></div>
+                            <div class="small text-black-50"><a href="#!">susananzth@gmail.com</a></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3 mb-md-0">
                     <div class="card py-4 h-100">
                         <div class="card-body text-center">
-                            <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                            <i class="fa fa-mobile text-primary mb-2"></i>
                             <h4 class="text-uppercase m-0">Phone</h4>
                             <hr class="my-4" />
-                            <div class="small text-black-50">+1 (555) 902-8832</div>
+                            <div class="small text-black-50">(+51) 982-701-107</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="social d-flex justify-content-center">
-                <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
+                <a class="mx-2" href="https://twitter.com/susananzth"><i class="fa fa-twitter"></i></a>
+                <a class="mx-2" href="https://facebook.com/susananzth"><i class="fa fa-facebook-f"></i></a>
+                <a class="mx-2" href="https://www.linkedin.com/in/susananzth/"><i class="fa fa-linkedin"></i></a>
+                <a class="mx-2" href="https://github.com/susananzth"><i class="fa fa-github"></i></a>
+                <a class="mx-2" href="https://gitlab.com/susananzth"><i class="fa fa-gitlab"></i></a>
             </div>
         </div>
     </section>
     <!-- Footer-->
-    <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © Your Website 2020</div></footer>
+    <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © SusanaNzth 2020</div></footer>
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
