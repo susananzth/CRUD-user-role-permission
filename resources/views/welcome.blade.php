@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Grayscale - Start Bootstrap Theme</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
+    <!-- Etiquetas meta -->
+    <meta charset="utf-8">
+    <meta name="DC.Language" scheme="RFC1766" content="Spanish">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema web de administrador de usuarios y roles con Laravel 7, interfaz en bootstrap 4.5. Desarrollado por Susana Piñero @susananzth"/>
+    <meta name="keywords" content="Laravel, Laravel 7, bootstrap, bootstrap 4.5, roles, usuarios, admin"/>
+    <meta name="author" content="Susana Piñero Rodríguez" />
+    <meta name="copyright" content="Susana Piñero Rodríguez" />
+    <META name="reply-to" content="susananzth@gmail.com">
+    <LINK REV="made" href="mailto:susananzth@gmail.com">
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="expires" content="43200"/>
+    <meta name="Resource-type" content="Manual">
+    <meta name="DateCreated" content="Sat, 08 July 2020 00:00:00 GMT-5">
+    <meta name="Revisit-after" content="1 days">
+    <meta name="robots" content="ALL">
+    <!-- Título de la página -->
+    <title>Laravel 7 | SusanaNzth</title>
+    <!-- Ícono -->
+    <link rel="icon" type="image/x-icon" href="{{asset('/img/favicon.ico')}}" />
+
+    <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="{{asset('/css/normalize.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/theme.css')}}"/>
+    <link rel="stylesheet" href="{{asset('/css/style.css')}}">
+
 </head>
 <body id="page-top">
     <!-- Navigation-->
