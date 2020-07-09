@@ -41,7 +41,8 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ URL('login') }}">Sing In</a></li>
                 </ul>
             </div>
         </div>
@@ -119,7 +120,7 @@
         </div>
     </section>
     <!-- Contact-->
-    <section class="contact-section bg-black">
+    <section class="contact-section bg-black" id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3 mb-md-0">
