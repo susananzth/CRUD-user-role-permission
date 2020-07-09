@@ -33,32 +33,37 @@
 </head>
 <body class="body">
     <div class="layout-content bg-app">
-        <!-- Navigation-->
+        <!-- Navigación-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container">
+                <!-- Link del logo-->
                 <a class="navbar-brand js-scroll-trigger" href="{{ url('/') }}">SusanaNzth</a>
+                <!-- Botón de menú móvil-->
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fa fa-bars"></i>
                 </button>
+                <!-- Menú de navegación-->
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+                        <!-- Links de autenticación -->
                         @guest
+                            <!-- Vista de invitados (Iniciar sesión) -->
                             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ URL('login') }}">Sing In</a></li>
                         @else
+                            <!-- Vista de usuario logueado -->
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
+                                <!-- Botón de cerrar sesión -->
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
+                                    <!-- Form de cerrar sesión que es accionado al hacer clic al botón de arriba -->
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -69,17 +74,17 @@
                 </div>
             </div>
         </nav>
-        <!-- Content-->
+        <!-- Contenido-->
         <section class="text-center">
             <div class="container">
                 <main class="py-4">
-                    @yield('content')
+                    @yield('content') <!-- Aquí llama los fragmento de contenidos de las otras páginas -->
                 </main>
             </div>
         </section>
     </div>
     <div class="layout-footer">
-        <!-- Contact-->
+        <!-- Sección de contacto-->
         <section class="contact-section bg-black">
             <div class="container">
                 <div class="social d-flex justify-content-center">
@@ -99,7 +104,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- Core theme JS-->
+    <!-- JS del tema -->
     <script src="js/scripts.js"></script>
 </body>
 </html>
