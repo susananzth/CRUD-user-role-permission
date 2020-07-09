@@ -35,7 +35,7 @@
             <a class="navbar-brand js-scroll-trigger" href="#page-top">SusanaNzth</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
-                <i class="fas fa-bars"></i>
+                <i class="fa fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
@@ -154,7 +154,7 @@
                     </div>
                 </div>
             </div>
-            <div class="social d-flex justify-content-center">
+            <div class="social d-flex justify-content-center py-5">
                 <a class="mx-2" href="https://twitter.com/susananzth"><i class="fa fa-twitter"></i></a>
                 <a class="mx-2" href="https://facebook.com/susananzth"><i class="fa fa-facebook-f"></i></a>
                 <a class="mx-2" href="https://www.linkedin.com/in/susananzth/"><i class="fa fa-linkedin"></i></a>
