@@ -19,7 +19,6 @@
     <meta name="robots" content="ALL">
     <!-- Título de la página -->
     <title>Laravel 7 | SusanaNzth</title>
-    <title>{{ config('app.name', 'SusanaNzth') }}</title>
     <!-- Ícono -->
     <link rel="icon" type="image/x-icon" href="{{asset('/img/favicon.ico')}}" />
     <!-- Fuentes -->
@@ -33,7 +32,7 @@
 </head>
 <body class="body">
     <div class="layout-content bg-app">
-        <!-- Navigación-->
+        <!-- Navegación-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container">
                 <!-- Link del logo-->
@@ -84,7 +83,7 @@
         </section>
     </div>
     <div class="layout-footer">
-        <!-- Sección de contacto-->
+        <!-- Link de redes sociales-->
         <section class="contact-section bg-black">
             <div class="container">
                 <div class="social d-flex justify-content-center">

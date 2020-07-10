@@ -29,25 +29,35 @@
     <link rel="stylesheet" href="{{asset('/css/style.css')}}">
 </head>
 <body id="page-top">
-    <!-- Navigation-->
+    <!-- Navegación-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
+            <!-- Link del logo-->
             <a class="navbar-brand js-scroll-trigger" href="#page-top">SusanaNzth</a>
+            <!-- Botón de menú móvil-->
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fa fa-bars"></i>
             </button>
+            <!-- Menú de navegación-->
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ URL('login') }}">Sing In</a></li>
+                    <!-- Links de autenticación -->
+                    @guest
+                        <!-- Vista de invitados (Iniciar sesión) -->
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ URL('login') }}">Sing In</a></li>
+                    @else
+                        <!-- Vista de usuario logueado -->
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ URL('home') }}">Dashboard</a></li>
+                    @endguest
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- Masthead-->
+    <!-- Header / Cabecera -->
     <header class="masthead">
         <div class="container d-flex h-100 align-items-center">
             <div class="mx-auto text-center bg-title">
@@ -58,7 +68,7 @@
             </div>
         </div>
     </header>
-    <!-- About-->
+    <!-- Sección de acerda de... -->
     <section class="about-section text-center" id="about">
         <div class="container">
             <div class="row">
@@ -74,7 +84,7 @@
             <img class="img-fluid" src="assets/img/ipad.png" alt="" />
         </div>
     </section>
-    <!-- Projects-->
+    <!-- Sección 2 -->
     <section class="projects-section bg-light" id="projects">
         <div class="container">
             <!-- Featured Project Row-->
@@ -119,7 +129,7 @@
             </div>
         </div>
     </section>
-    <!-- Contact-->
+    <!-- sección de contacto-->
     <section class="contact-section bg-black" id="contact">
         <div class="container">
             <div class="row">
@@ -154,6 +164,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Link de redes sociales-->
             <div class="social d-flex justify-content-center py-5">
                 <a class="mx-2" href="https://twitter.com/susananzth"><i class="fa fa-twitter"></i></a>
                 <a class="mx-2" href="https://facebook.com/susananzth"><i class="fa fa-facebook-f"></i></a>
@@ -170,7 +181,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- Core theme JS-->
+    <!-- JS del tema -->
     <script src="js/scripts.js"></script>
 </body>
 </html>
