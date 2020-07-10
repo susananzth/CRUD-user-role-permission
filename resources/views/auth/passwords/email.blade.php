@@ -26,11 +26,11 @@
                             <div class="col-md-6">
                                 <!-- @error('dato') is-invalid @enderror = accionará el mensaje de error en caso de que el dato ingresado sea inválido -->
                                 <!-- value = guardará el dato anteriormente ingresado en caso que la vista se recargue por mensaje de error -->
-                                <!-- required = Validación de html para notificar que es un dato requerido para iniciar sesión -->
+                                <!-- required = Validación de html para notificar que es un dato requerido para restablecer contraseña -->
                                 <!-- autocomplete = le dará opciones al usuario para autocompletar el campo -->
                                 <!-- autofocus = al ingresar a esta vista, el cursor se posicionará en esta caja para facilitar el ingreso de los datos del usuario -->
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                <!-- Saldrá un mensaje de error si el correo es inválido. Los mensajes se editan en: resources/lang/en-es -->
+                                <!-- Saldrá un mensaje de error si el dato es inválido. Los mensajes se editan en: resources/lang/en-es -->
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
