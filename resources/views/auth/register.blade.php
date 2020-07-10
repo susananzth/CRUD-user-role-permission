@@ -21,7 +21,8 @@
                                 <!-- autocomplete = le dará opciones al usuario para autocompletar el campo -->
                                 <!-- autofocus = al ingresar a esta vista, el cursor se posicionará en esta caja para facilitar el ingreso de los datos del usuario -->
                                 <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
-                                @error('firstname')<!-- Saldrá un mensaje de error si el dato es inválido. Los mensajes se editan en: resources/lang/en-es -->
+                                <!-- Saldrá un mensaje de error si el dato es inválido. Los mensajes se editan en: resources/lang/en-es -->
+                                @error('firstname')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -37,7 +38,8 @@
                                 <!-- required = Validación de html para notificar que es un dato requerido para ergistrarse -->
                                 <!-- autocomplete = le dará opciones al usuario para autocompletar el campo -->
                                 <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname">
-                                @error('lastname')<!-- Saldrá un mensaje de error si el dato es inválido. Los mensajes se editan en: resources/lang/en-es -->
+                                <!-- Saldrá un mensaje de error si el dato es inválido. Los mensajes se editan en: resources/lang/en-es -->
+                                @error('lastname')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -53,7 +55,8 @@
                                 <!-- required = Validación de html para notificar que es un dato requerido para ergistrarse -->
                                 <!-- autocomplete = le dará opciones al usuario para autocompletar el campo -->
                                 <input id="codeCountry" type="text" class="form-control @error('codeCountry') is-invalid @enderror" name="codeCountry" value="{{ old('codeCountry') }}" required autocomplete="codeCountry">
-                                @error('codeCountry')<!-- Saldrá un mensaje de error si el dato es inválido. Los mensajes se editan en: resources/lang/en-es -->
+                                <!-- Saldrá un mensaje de error si el dato es inválido. Los mensajes se editan en: resources/lang/en-es -->
+                                @error('codeCountry')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -69,7 +72,8 @@
                                 <!-- required = Validación de html para notificar que es un dato requerido para ergistrarse -->
                                 <!-- autocomplete = le dará opciones al usuario para autocompletar el campo -->
                                 <input id="phone" type="number" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
-                                @error('phone')<!-- Saldrá un mensaje de error si el dato es inválido. Los mensajes se editan en: resources/lang/en-es -->
+                                <!-- Saldrá un mensaje de error si el dato es inválido. Los mensajes se editan en: resources/lang/en-es -->
+                                @error('phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -85,20 +89,24 @@
                                 <!-- required = Validación de html para notificar que es un dato requerido para ergistrarse -->
                                 <!-- autocomplete = le dará opciones al usuario para autocompletar el campo -->
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
-                                @error('name')<!-- Saldrá un mensaje de error si el dato es inválido. Los mensajes se editan en: resources/lang/en-es -->
+                                <!-- Saldrá un mensaje de error si el dato es inválido. Los mensajes se editan en: resources/lang/en-es -->
+                                @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
+                            <!-- Contenedor del correo -->
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
                             <div class="col-md-6">
+                                <!-- @error('dato') is-invalid @enderror = accionará el mensaje de error en caso de que el dato ingresado sea inválido -->
+                                <!-- value = guardará el dato anteriormente ingresado en caso que la vista se recargue por mensaje de error -->
+                                <!-- required = Validación de html para notificar que es un dato requerido para ergistrarse -->
+                                <!-- autocomplete = le dará opciones al usuario para autocompletar el campo -->
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
+                                <!-- Saldrá un mensaje de error si el dato es inválido. Los mensajes se editan en: resources/lang/en-es -->
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -106,13 +114,15 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
+                            <!-- Contenedor de la contraseña -->
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
                             <div class="col-md-6">
+                                <!-- @error('dato') is-invalid @enderror = accionará el mensaje de error en caso de que el dato ingresado sea inválido -->
+                                <!-- required = Validación de html para notificar que es un dato requerido para ergistrarse -->
+                                <!-- autocomplete = le dará opciones al usuario para autocompletar el campo -->
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                                <!-- Saldrá un mensaje de error si el dato es inválido. Los mensajes se editan en: resources/lang/en-es -->
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -120,17 +130,18 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
+                            <!-- Contenedor de la confirmación de la contraseña -->
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
                             <div class="col-md-6">
+                                <!-- required = Validación de html para notificar que es un dato requerido para ergistrarse -->
+                                <!-- autocomplete = le dará opciones al usuario para autocompletar el campo -->
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
+                                <!-- Botón que acciona el metodo y action del form -->
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
