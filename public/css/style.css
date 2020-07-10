@@ -2,28 +2,31 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
     *{font-family: 'Montserrat', cursive; font-size: 16px;font-weight: 300;}
-    .masthead{background: linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.35) 75%, #00000099 100%), url(../img/bg-masthead.png)}
-    .bg-title{background: #212121b8;padding: 2rem;}
+    .masthead{background: linear-gradient(to bottom, rgba(48, 215, 236, 0.28) 0%, rgba(87, 145, 152, 0.7) 75%, #00000099 100%), url(../img/bg-masthead.png);
+              background-position: center;background-repeat: no-repeat;background-attachment: scroll;background-size: cover;}
+    .bg-title{padding: 2rem;}
+    .masthead h1 {font-family: 'Comfortaa';background: transparent;color: #9E9E9E;-webkit-text-fill-color: #056e7b}
+    .text-white-50 {color: #dbe7e8 !important;}
     #mainNav {background-color: #212121b8;}
     #mainNav .navbar-brand {color: #bbb6b6;}
     .navbar-light .navbar-nav .nav-link {color: #bbb6b6;}
     #mainNav .navbar-toggler {color: #5e91a0;border: 1px solid #5e91a0;}
-    .text-primary {color: #5e91a0 !important;}
+    .text-primary {color: #04a1b5 !important;}
     .btn{border-radius: 2rem;padding: 1rem 2rem;}
-    .btn-primary {background-color: #5e91a0;border-color: #5e91a0;}
-    .btn-primary:hover {background-color: #547e8b;border-color: #547e8b;}
-    .btn-link {color: #5e91a0;}
-    .btn-link:hover {color: #466973;}
-    a {color: #5e91a0;}
+    .btn-primary {background-color: #00BCD4;border-color: #E1F5FE;}
+    .btn-primary:hover {background-color: #079fb3;border-color: #547e8b;}
+    .btn-link {color: #00BCD4;}
+    .btn-link:hover {color: #079fb3;}
+    a {color: #04a1b5;}
     @media (min-width: 992px){
-        #mainNav.navbar-shrink .nav-link.active {color: #5e91a0;border-bottom: 0.25rem solid #5e91a0;}
-        .nav-link:hover {color: #5e91a0;}
+        #mainNav.navbar-shrink .nav-link.active {color: #04a1b5;border-bottom: 0.25rem solid #04a1b5;}
+        .nav-link:hover {color: #04a1b5;}
     }
     .bg-black{background-color: #455456 !important;}
     .contact-section .social {margin-top: 0;}
     .contact-section {padding-top: 3rem;}
-    .contact-section .card {border-bottom: 0.25rem solid #5e91a0;}
-    .contact-section .card hr {border-color: #5e91a0;}
+    .contact-section .card {border-bottom: 0.25rem solid #04a1b5;}
+    .contact-section .card hr {border-color: #04a1b5;}
 /*======== Auth ========*/
     .body{display: -webkit-box;display: flex;-webkit-box-orient: vertical;-webkit-box-direction: normal;flex-direction: column;min-height: 100vh;}
     .body, .layout-content{min-width: 0;-webkit-box-flex: 1;flex-grow: 1;}
