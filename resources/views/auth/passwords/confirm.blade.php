@@ -21,7 +21,7 @@
                                 <!-- required = Validación de html para notificar que es un dato requerido para ergistrarse -->
                                 <!-- autocomplete = le dará opciones al usuario para autocompletar el campo -->
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                @error('password')
+                                @error('password')<!-- Saldrá un mensaje de error si el dato es inválido. Los mensajes se editan en: resources/lang/en-es -->
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
