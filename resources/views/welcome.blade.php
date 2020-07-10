@@ -166,11 +166,11 @@
             </div>
             <!-- Link de redes sociales-->
             <div class="social d-flex justify-content-center py-5">
-                <a class="mx-2" href="https://twitter.com/susananzth"><i class="fa fa-twitter"></i></a>
-                <a class="mx-2" href="https://facebook.com/susananzth"><i class="fa fa-facebook-f"></i></a>
-                <a class="mx-2" href="https://www.linkedin.com/in/susananzth/"><i class="fa fa-linkedin"></i></a>
-                <a class="mx-2" href="https://github.com/susananzth"><i class="fa fa-github"></i></a>
-                <a class="mx-2" href="https://gitlab.com/susananzth"><i class="fa fa-gitlab"></i></a>
+                <a class="mx-2" target="_blank" href="https://twitter.com/susananzth"><i class="fa fa-twitter"></i></a>
+                <a class="mx-2" target="_blank" href="https://facebook.com/susananzth"><i class="fa fa-facebook-f"></i></a>
+                <a class="mx-2" target="_blank" href="https://www.linkedin.com/in/susananzth/"><i class="fa fa-linkedin"></i></a>
+                <a class="mx-2" target="_blank" href="https://github.com/susananzth"><i class="fa fa-github"></i></a>
+                <a class="mx-2" target="_blank" href="https://gitlab.com/susananzth"><i class="fa fa-gitlab"></i></a>
             </div>
         </div>
     </section>
