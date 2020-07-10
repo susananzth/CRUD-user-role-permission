@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center pt-10">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card border-0 shadow-lg bd-1">
                 <!-- Título del formulario-->
                 <div class="card-header h4 mb-4">{{ __('Register') }}</div>
                 <div class="card-body">
