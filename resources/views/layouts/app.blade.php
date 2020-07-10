@@ -76,7 +76,7 @@
         <!-- Contenido-->
         <section class="text-center">
             <div class="container">
-                <main class="py-4">
+                <main class="py-5">
                     @yield('content') <!-- Aquí llama los fragmento de contenidos de las otras páginas -->
                 </main>
             </div>
