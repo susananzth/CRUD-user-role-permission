@@ -35,7 +35,7 @@
     .form-control:focus {border-color: #b3c5d1;box-shadow: 0 0 0 0.2rem rgba(100, 130, 161, 0.25);}
     .form-group {margin-bottom: 1.5rem;}
     .bg-app {background: #4eb2d0;}
-    .pt-10{padding-top: 10rem;}
+    .pt-10{padding-top: 10rem !important;}
     .footer {padding: 2rem 0;}
     .bd-1{border-radius: 1rem;}
     .mr-1{margin-right: 1rem !important;}
