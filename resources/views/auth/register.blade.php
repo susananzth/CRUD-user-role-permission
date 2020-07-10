@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <!-- Contenedor del código de país de teléfono -->
+                            <!-- Contenedor del teléfono -->
                             <label for="phone" class="col-sm-4 col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
                             <div class="col-md-6">
                                 <!-- @error('dato') is-invalid @enderror = accionará el mensaje de error en caso de que el dato ingresado sea inválido -->
