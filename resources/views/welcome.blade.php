@@ -32,8 +32,10 @@
     <!-- Navegación-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <!-- Link del logo-->
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">SusanaNzth</a>
+            <!-- Logo -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
+                <img src="img/IT_Susananzth.png" alt="SusanaNzth">
+            </a>
             <!-- Botón de menú móvil-->
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
