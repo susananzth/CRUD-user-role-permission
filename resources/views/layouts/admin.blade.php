@@ -77,7 +77,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Roles:</h6>
             <a class="collapse-item" href="buttons.html">Add User</a>
-            <a class="collapse-item" href="cards.html">View Users</a>
+            <a class="collapse-item" href="{{ url('/users') }}">View Users</a>
           </div>
         </div>
       </li>
@@ -158,12 +158,7 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-          </div>
-        </div>
+        @yield('content')
         <!-- /.container-fluid -->
       </div>
       <!-- End of Main Content -->
