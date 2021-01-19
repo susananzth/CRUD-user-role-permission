@@ -177,7 +177,7 @@
         </div>
     </section>
     <!-- Footer-->
-    <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © SusanaNzth 2020</div></footer>
+    <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © SusanaNzth 2021</div></footer>
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
