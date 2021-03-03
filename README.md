@@ -46,7 +46,7 @@ Por favor lee el [CONTRIBUTING.md](https://github.com/susananzth/CRUD-user-role/
 Las herramientas que utilice para crear este proyecto
 
 * [Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/) - Interfaz, utilicé el framework Bootstrap 4.5.
-* [Laravel-EN](https://laravel.com/docs/7.x) - [Laravel-ES](https://docs.laraveles.com/docs/5.5) BackEnd, utilicé el framework Laravel 7.
+* [Laravel-EN](https://laravel.com/docs/7.x) - [Laravel-ES](https://docs.laraveles.com/docs/5.5) BackEnd, utilicé el framework Laravel 8.
 *	Base de datos: MySQL
 
 ## Autores ✒️

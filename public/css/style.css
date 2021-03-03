@@ -67,3 +67,6 @@
     .sidebar.toggled #sidebarToggle::after {
       content: '' !important;
     }
+    .dropdown-item.active, .dropdown-item:active {
+      background-color: #079fb3;border-color: #547e8b;
+    }

@@ -155,13 +155,13 @@
             </li>
           </ul>
         </nav>
-        <!-- End of Topbar -->
+        <!-- Fin de barra de navegación -->
 
-        <!-- Begin Page Content -->
+        <!-- Contenido de la página. Llamado con una función. -->
         @yield('content')
-        <!-- /.container-fluid -->
-      </div>
-      <!-- End of Main Content -->
+
+      </div><!-- /.container -->
+      <!-- Fin del contenido -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -171,38 +171,38 @@
           </div>
         </div>
       </footer>
-      <!-- End of Footer -->
+      <!-- Fin del Footer -->
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- Fin del Content Wrapper -->
   </div>
-  <!-- End of Page Wrapper -->
+  <!-- Fin del DIV Page Wrapper -->
 
-  <!-- Botón de scroll -->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fa fa-angle-up"></i>
-  </a>
+    <!-- Botón de scroll -->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
 
-  <!-- Ventana modal de cerrar sesión -->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModal1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="logoutModal1">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">Logout</a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-              @csrf
-          </form>
+    <!-- Ventana modal de cerrar sesión -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModal1" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="logoutModal1">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">Logout</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+          </div>
         </div>
       </div>
-    </div>
     </div>
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
