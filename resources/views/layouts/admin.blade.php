@@ -1,35 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <!-- Etiquetas meta -->
-    <meta charset="utf-8">
-    <meta name="DC.Language" scheme="RFC1766" content="Spanish">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sistema web de administrador de usuarios y roles con Laravel 7, interfaz en bootstrap 4.5. Desarrollado por Susana Piñero @susananzth"/>
-    <meta name="keywords" content="Laravel, Laravel 7, bootstrap, bootstrap 4.5, roles, usuarios, admin"/>
-    <meta name="author" content="Susana Piñero Rodríguez" />
-    <meta name="copyright" content="Susana Piñero Rodríguez" />
-    <meta name="reply-to" content="susananzth@gmail.com">
-    <link REV="made" href="mailto:susananzth@gmail.com">
-    <meta http-equiv="cache-control" content="no-cache"/>
-    <meta http-equiv="expires" content="43200"/>
-    <meta name="Resource-type" content="Manual">
-    <meta name="DateCreated" content="Sat, 08 July 2020 00:00:00 GMT-5">
-    <meta name="Revisit-after" content="1 days">
-    <meta name="robots" content="ALL">
-    <!-- Título de la página -->
-    <title>Laravel 7 | SusanaNzth</title>
-    <!-- Ícono -->
-    <link rel="icon" type="image/x-icon" href="{{asset('/img/favicon.ico')}}" />
-    <!-- Fuentes -->
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Estilos -->
-    <link rel="stylesheet" href="{{asset('/css/normalize.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/sb-admin-2.min.css')}}"/>
-    <link rel="stylesheet" href="{{asset('/css/style.css')}}">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-</head>
+require('partials.top')
 <body id="page-top">
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -204,12 +173,4 @@
         </div>
       </div>
     </div>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Third party plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- JS del tema -->
-    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-</body>
-</html>
+require('partials.bottom')

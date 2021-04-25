@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.external')
+
+@section('title', 'Iniciar sesión')
 
 @section('content')
 <div class="container">
