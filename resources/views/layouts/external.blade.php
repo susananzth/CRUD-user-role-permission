@@ -1,7 +1,7 @@
 @include('partials.top')
-    <body class="d-flex h-100 text-center text-white body-external">
+    <body class="d-flex h-100 text-center body-external">
         <div class="col-6 d-flex h-100 p-3 mx-auto flex-column">
-            <header class="mb-auto">
+            <header class="mb-auto text-white ">
                 <div>
                     <a class="no-style" href="{{ url('/') }}">
                         <h3 class="float-md-start mb-0">
@@ -29,7 +29,7 @@
 
             @yield('content')
 
-            <footer class="mt-auto">
+            <footer class="mt-auto text-white ">
                 <p>Proyecto desarrollado por Susana Piñero Rodríguez</p>
                 <p>Copyright © Susana Piñero Rodríguez 2021</p>
             </footer>
