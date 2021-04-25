@@ -1,6 +1,6 @@
-# Nombre 🤓
+# CRUD de roles, permisos y usuarios en Laravel 8.12 🤓
 
-Descripción
+Sistema web para crear, modificar, eliminar y listar usuarios, roles y permisos.
 
 ## Comenzando 💪🚀
 
