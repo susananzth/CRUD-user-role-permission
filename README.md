@@ -1,6 +1,6 @@
-# CRUD de roles y usuarios en Laravel 7 🤓
+# Nombre 🤓
 
-Sistema web para crear, modificar, eliminar y listar usuarios y roles
+Descripción
 
 ## Comenzando 💪🚀
 
@@ -10,56 +10,60 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 _Que cosas necesitas para poner en marcha el proyecto y como instalarlos_
 
-* Simulando un servidor en tu ordenador, Ej: [XAMPP](https://www.apachefriends.org/es/index.html) o [LAMPP](https://bitnami.com/stack/lamp/installer)
-* PHP Version 7.3.10 [Link](https://www.php.net/manual/es/function.phpversion.php)
-* Composer [Link](https://getcomposer.org/download/)
-*	GIT [Link](https://git-scm.com/downloads)
+* GIT [Link](https://git-scm.com/downloads)
+* Entorno de servidor local, Ej: [Laragon](https://laragon.org/download/), [XAMPP](https://www.apachefriends.org/es/index.html) o [LAMPP](https://bitnami.com/stack/lamp/installer).
+* PHP Version 7.4 - 8.0 [Link](https://www.php.net/downloads.php).
+* Manejador de dependencias de PHP [Composer](https://getcomposer.org/download/).
 
 ### Instalación 🔧
 
 Paso a paso de lo que debes ejecutar para tener el proyecto ejecutandose
 
-Primero que nada, clic en Fork.
-
-Inicia el git dentro de tu servidor:
-```
-git init
-```
-
-Luego, clona el repositorio dentro de la carpeta de tu servidor con el siguiente comando:
-```
-git clone git@github.com:susananzth/CRUD-user-role.git
-```
-_o_
-```
-git clone https://github.com/susananzth/CRUD-user-role.git
-```
-
-Listo 😁
-
-## Contribuyendo 🖇️
-
-Por favor lee el [CONTRIBUTING.md](https://github.com/susananzth/CRUD-user-role/blob/master/CONTRIBUTING.md) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
+ 1. Primero que nada, clic en Fork 😊
+ 2. Inicia el git dentro de tu servidor:
+    ```
+    git init
+    ```
+ 3. Luego, clona el repositorio dentro de la carpeta de tu servidor con el siguiente comando:
+    ```
+    git clone https://github.com/susananzth/CRUD-user-role-permission.git
+    ```
+ 4. Ingresa a la carpeta del repositorio
+    ```
+    cd CRUD-user-role-permission
+    ```
+ 5. Instala las dependencias del proyecto
+    ```
+    composer install
+    ```
+ 5. Crea el archivo ".env" copiando la información del [ejemplo](https://github.com/susananzth/) y cambiar valores de su Base de datos.
+ 6. Ejecute las migraciones
+    ```
+    php artisan migrate --seed
+    ```
+ 7. Inicialice el servidor local
+    ```
+    php artisan serve
+    ```
+ 8. Listo, ya podrá visualizr e interactuar con el proyecto en local  😁
 
 ## Construido con 🛠️
 
 Las herramientas que utilice para crear este proyecto
 
-* [Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/) - Interfaz, utilicé el framework Bootstrap 4.5.
-* [Laravel-EN](https://laravel.com/docs/7.x) - [Laravel-ES](https://docs.laraveles.com/docs/5.5) BackEnd, utilicé el framework Laravel 8.
-*	Base de datos: MySQL
+* Framework de PHP [Laravel](https://laravel.com/docs/8.x).
+* Toolkit de diseño [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/).
 
 ## Autores ✒️
 
-* **Susana Piñero** - *FrontEnd + Documentación* - GitLab: [susananzth](https://gitlab.com/susananzth) GitHub: [susananzth](https://github.com/susananzth)
+* **Susana Piñero** - *FrontEnd + BackEnd + Documentación* - GitLab: [susananzth](https://gitlab.com/susananzth) GitHub: [susananzth](https://github.com/susananzth)
 
 ## Licencia 📄
 
-Este proyecto está bajo la Licencia (GNU General Public License v3.0) - mira el archivo [LICENSE.md](https://github.com/susananzth/CRUD-user-role/blob/master/LICENSE.md) para detalles
+Este proyecto está bajo la Licencia (GNU General Public License v3.0) - mira el archivo [LICENSE.md](https://github.com/susananzth/CRUD-user-role-permission/blob/main/LICENSE.md) para detalles
 
 ## Expresiones de Gratitud 🎁
 
 * Comenta a otros sobre este proyecto 📢
-* Regalanos una estrella ⭐
-* Copia el proyecto en tu cuenta Fork
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo.
+* Regalame una estrella ⭐
+* Copia el proyecto en tu cuenta dando clic en Fork 😊
