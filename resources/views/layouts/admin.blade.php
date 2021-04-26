@@ -1,4 +1,4 @@
-require('partials.top')
+@include('partials.top')
 <body id="page-top">
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -173,4 +173,4 @@ require('partials.top')
         </div>
       </div>
     </div>
-require('partials.bottom')
+@include('partials.bottom')
