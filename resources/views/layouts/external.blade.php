@@ -14,7 +14,7 @@
                         <a class="nav-link" href="{{ url('/') }}">inicio</a>
                         @if (Route::has('login'))
                             @auth
-                                <a class="nav-link" href="{{ route('home') }}">Dashboard</a>
+                                <a class="nav-link" href="{{ route('home') }}">Panel administrativo</a>
                             @else
                                 <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
 
@@ -34,9 +34,9 @@
                 <p>Copyright © Susana Piñero Rodríguez 2021</p>
             </footer>
         </div>
-        <!-- JS Bootstrap -->
+        {{-- JS Bootstrap --}}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-        <!-- Llamada de los script de cada vista -->
+        {{-- Llamada de los script de cada vista --}}
         @yield('scripts')
     </body>
 </html>
