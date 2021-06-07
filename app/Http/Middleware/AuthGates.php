@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use App\Models\Role;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class AuthGates
 {
@@ -17,7 +19,7 @@ class AuthGates
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = \Auth::user();
+        $user = Auth::user();
 
         if ($user) {
             $roles            = Role::with('permissions')->get();

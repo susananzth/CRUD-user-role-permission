@@ -26,4 +26,5 @@ Route::resource('posts', PostController::class);
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('task', App\Http\Controllers\TaskController::class);
+    Route::resource('user', App\Http\Controllers\UserController::class);
 });

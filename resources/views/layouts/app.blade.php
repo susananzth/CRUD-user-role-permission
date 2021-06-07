@@ -79,6 +79,7 @@
                         </div>
                     </li>
                 @endcan
+                @can('user_access')
                 {{-- Menú de usuarios --}}
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
@@ -95,6 +96,7 @@
                         </div>
                     </div>
                 </li>
+                @endcan
                 {{-- Menú de roles --}}
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRole"

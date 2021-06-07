@@ -14,23 +14,27 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $users = [
-            [
-                'id'             => 1,
-                'name'           => 'Admin',
-                'email'          => 'admin@admin.com',
-                'password'       => bcrypt('password'),
-                'remember_token' => null,
-            ],
-            [
-                'id'             => 2,
-                'name'           => 'User',
-                'email'          => 'user@user.com',
-                'password'       => bcrypt('password'),
-                'remember_token' => null,
-            ],
-        ];
-
-        User::insert($users);
+        \App\Models\User::create([
+            'firstname' => 'Super',
+            'lastname' => 'Admin',
+            'username' => 'susananzth',
+            'code' => '+51',
+            'phone' => '982701107',
+            'email' => 'admin@susananzth.com',
+            'address' => 'La Playa',
+            'password' => bcrypt('123456'),
+            'remember_token' => null,
+        ]);
+        \App\Models\User::create([
+            'firstname' => 'User',
+            'lastname' => 'Customer',
+            'username' => 'user',
+            'code' => '+51',
+            'phone' => '999666333',
+            'email' => 'user@mail.com',
+            'address' => 'Barquisimeto',
+            'password' => bcrypt('123456'),
+            'remember_token' => null,
+        ]);
     }
 }
