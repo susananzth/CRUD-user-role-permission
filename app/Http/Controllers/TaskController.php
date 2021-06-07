@@ -7,6 +7,8 @@ use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class TaskController extends Controller
 {
@@ -23,6 +25,7 @@ class TaskController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         // Guarda en $tasks el todos'all()' los registros de del Model-BD Task.
         $tasks = Task::all();
 
@@ -37,6 +40,7 @@ class TaskController extends Controller
      */
     public function create()
     {
+        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         // Retorna la vista de crear una tarea.
         return view('dashboard.tasks.create');
     }
@@ -49,6 +53,7 @@ class TaskController extends Controller
      */
     public function store(StoreTaskRequest $request)
     {
+        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         // Llama al Model Task para que cree'create()' 
         // un nuevo registro con todo lo obtenido'$request' de los inputs
         // una vez que hayan sido validados'->validated()'
@@ -66,6 +71,7 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
+        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         // Muestra la vista para ver un registro.
         // se indica como parámetro el ID de la tarea que se dese aver
         // Se retorna con los datos obtenidos.
@@ -80,6 +86,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
+        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         return view('dashboard.tasks.edit', compact('task'));
     }
 
@@ -92,6 +99,7 @@ class TaskController extends Controller
      */
     public function update(UpdateTaskRequest $request, Task $task)
     {
+        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $task->update($request->validated());
 
         return redirect()->route('task.index');
@@ -105,6 +113,7 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
+        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         // Se elimina la tarea
         $task->delete();

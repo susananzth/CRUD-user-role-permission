@@ -61,22 +61,24 @@
                 <div class="sidebar-heading">
                     Administrador
                 </div>
-                {{-- Menú de Tareas --}}
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTask"
-                        aria-expanded="true" aria-controls="collapseTask">
-                        <i class="fas fa-fw fa-tasks"></i>
-                        <span>Tareas</span>
-                    </a>
-                    <div id="collapseTask" class="collapse" aria-labelledby="headingTask"
-                        data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Administrar Tareas:</h6>
-                            <a class="collapse-item" href="{{ route('task.create') }}">Agregar Tarea</a>
-                            <a class="collapse-item" href="{{ route('task.index') }}">Listar Tareas</a>
+                @can('task_access')
+                    {{-- Menú de Tareas --}}
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTask"
+                            aria-expanded="true" aria-controls="collapseTask">
+                            <i class="fas fa-fw fa-tasks"></i>
+                            <span>Tareas</span>
+                        </a>
+                        <div id="collapseTask" class="collapse" aria-labelledby="headingTask"
+                            data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Administrar Tareas:</h6>
+                                <a class="collapse-item" href="{{ route('task.create') }}">Agregar Tarea</a>
+                                <a class="collapse-item" href="{{ route('task.index') }}">Listar Tareas</a>
+                            </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
+                @endcan
                 {{-- Menú de usuarios --}}
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
