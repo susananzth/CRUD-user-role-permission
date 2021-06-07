@@ -22,6 +22,10 @@
         /*Comportamientos del texto del link cuando se interactúa con el*/
     a:focus, a:link, a.visited{color: #51068a;text-decoration: none;}
 
+    .text-primary {
+        color: #a4296a!important;
+    }
+
     .btn-primary {
       color: #fff;
       background-color: #a4296a;

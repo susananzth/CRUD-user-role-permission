@@ -22,4 +22,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\Dashboard\HomeController::class, 'index'])->name('home');
 
-Route::resource('posts', PostController::class)->name('posts');
+Route::resource('posts', PostController::class);
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('task', App\Http\Controllers\TaskController::class);
+});

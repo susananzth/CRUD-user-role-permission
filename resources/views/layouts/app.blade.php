@@ -25,8 +25,7 @@
         {{-- Ícono --}}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico')}}" />
         {{-- Fuentes --}}
-        <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
+        <link href="{{ asset('font/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
         <script src="{{ asset('js/app.js') }}" defer></script>
 
         {{-- Estilos --}}
@@ -62,6 +61,22 @@
                 <div class="sidebar-heading">
                     Administrador
                 </div>
+                {{-- Menú de Tareas --}}
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTask"
+                        aria-expanded="true" aria-controls="collapseTask">
+                        <i class="fas fa-fw fa-tasks"></i>
+                        <span>Tareas</span>
+                    </a>
+                    <div id="collapseTask" class="collapse" aria-labelledby="headingTask"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Administrar Tareas:</h6>
+                            <a class="collapse-item" href="{{ route('task.create') }}">Agregar Tarea</a>
+                            <a class="collapse-item" href="{{ route('task.index') }}">Listar Tareas</a>
+                        </div>
+                    </div>
+                </li>
                 {{-- Menú de usuarios --}}
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
@@ -73,7 +88,7 @@
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Administrar Usuarios:</h6>
-                            <a class="collapse-item" href="utilities-color.html">Agregar Usuarios</a>
+                            <a class="collapse-item" href="utilities-color.html">Agregar Usuario</a>
                             <a class="collapse-item" href="utilities-border.html">Listar Usuarios</a>
                         </div>
                     </div>
@@ -82,7 +97,7 @@
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRole"
                         aria-expanded="true" aria-controls="collapseRole">
-                        <i class="fas fa-fw fa-cog"></i>
+                        <i class="fas fa-fw fa-user-shield"></i>
                         <span>Roles</span>
                     </a>
                     <div id="collapseRole" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -97,14 +112,14 @@
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePermission"
                         aria-expanded="true" aria-controls="collapsePermission">
-                        <i class="fas fa-fw fa-cog"></i>
+                        <i class="fas fa-fw fa-user-lock"></i>
                         <span>Permisos</span>
                     </a>
                     <div id="collapsePermission" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Administrar Permisos:</h6>
-                            <a class="collapse-item" href="buttons.html">Agregar Permisos</a>
-                            <a class="collapse-item" href="cards.html">Listar Permisos</a>
+                            <a class="collapse-item" href="">Agregar Permiso</a>
+                            <a class="collapse-item" href="">Listar Permisos</a>
                         </div>
                     </div>
                 </li>
@@ -174,7 +189,7 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                <i class="fa fa-sign-out fa-sm fa-fw mr-2 text-gray-400"></i>
+                                <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Cerrar sesión
                             </a>
                             </div>
@@ -185,11 +200,6 @@
     
                     {{-- Contenido de la página --}}
                     <div class="container-fluid">
-                        {{-- Título --}}
-                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Administrador</h1>
-                        </div>
-
                         {{-- Contenido de la página. Llamado con una función. --}}
                         @yield('content')
 
