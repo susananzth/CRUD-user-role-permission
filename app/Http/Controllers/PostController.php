@@ -44,7 +44,7 @@ class PostController extends Controller
                     'name' => $names[$count],
                     'content'  => $contents[$count],
             );
-            $insert_post[] = $data; 
+            $insert_post[] = $data;
         }
         Post::insert($insert_post);
         return redirect()->route('home');

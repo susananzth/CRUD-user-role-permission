@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\PostController;
 
 /*
@@ -15,16 +18,13 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', function () {
-    return view('external.index');
+    return view('welcome');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\Dashboard\HomeController::class, 'index'])->name('home');
 
 Route::resource('posts', PostController::class);
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('task', App\Http\Controllers\TaskController::class);
-    Route::resource('user', App\Http\Controllers\UserController::class);
+    Route::resource('task', TaskController::class);
+    Route::resource('user', UserController::class);
 });
+Route::middleware(['auth:sanctum', 'verified'])->get('/home', [HomeController::class, 'index'])->name('home');

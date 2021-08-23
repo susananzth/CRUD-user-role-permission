@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::create([
+        User::create([
             'firstname' => 'Super',
             'lastname' => 'Admin',
             'username' => 'susananzth',
@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('123456'),
             'remember_token' => null,
         ]);
-        \App\Models\User::create([
+        User::create([
             'firstname' => 'User',
             'lastname' => 'Customer',
             'username' => 'user',

@@ -1,113 +1,85 @@
-@extends('layouts.external')
+<x-guest-layout>
+    <x-jet-authentication-card>
+        <x-slot name="logo">
+            <x-jet-authentication-card-logo />
+        </x-slot>
 
-@section('title', 'Registro')
+        <x-jet-validation-errors class="mb-4" />
+        <div class="card-body">
+            <form method="POST" action="{{ route('register') }}" class="row">
+                @csrf
+                <div class="form-group col-sm-12 col-md-6">
+                    <x-jet-label for="firtsname" value="{{ __('Firtsname') }}" />
+                    <x-jet-input id="firtsname" type="text" name="firtsname" :value="old('firts name')" required autofocus autocomplete="given-name firts-name" />
+                </div>
 
-@section('content')
+                <div class="form-group col-sm-12 col-md-6">
+                    <x-jet-label for="lastname" value="{{ __('Lastname') }}" />
+                    <x-jet-input id="lastname" type="text" name="lastname" :value="old('last name')" required autocomplete="family-name last-name surname" />
+                </div>
 
-            <main class="form-signin col-sm-12 col-md-8 py-2 px-2">
-                <div class="card">
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" class="row">
-                            @csrf
-                            <img class="mb-4 logo" src="img\logo.png" alt="susananzth">
-                            <h1 class="h3 mb-3 fw-normal">Registro</h1>
+                <div class="form-group col-sm-12 col-md-6">
+                    <x-jet-label for="code" value="{{ __('Country code') }}" />
+                    <x-jet-input id="code" type="text" name="code" :value="old('code')" required autocomplete="tel-country-code" />
+                </div>
 
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="firtsname" class="py-2">Nombres</label>
-                                <input id="firtsname" type="text" class="form-control  mb-2 @error('firtsname') is-invalid @enderror" name="firtsname" value="{{ old('firtsname') }}" required autocomplete="firtsname" autofocus>
-                                @error('firtsname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                <div class="form-group col-sm-12 col-md-6">
+                    <x-jet-label for="phone" value="{{ __('Phone number') }}" />
+                    <x-jet-input id="phone" type="tel" name="phone" :value="old('phone')" required autocomplete="tel-national phone tel" />
+                </div>
 
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="lastname" class="py-2">Apellidos</label>
-                                <input id="lastname" type="text" class="form-control  mb-2 @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname">
-                                @error('lastname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                <div class="form-group col-sm-12">
+                    <x-jet-label for="address" value="{{ __('Address') }}" />
+                    <x-jet-input id="address" type="text" name="address" :value="old('address')" required autocomplete="address street-address" />
+                </div>
 
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="code" class="py-2">Código de país</label>
-                                <input id="code" type="text" class="form-control  mb-2 @error('code') is-invalid @enderror" name="code" value="{{ old('code') }}" required autocomplete="code">
-                                @error('code')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                <div class="form-group col-sm-12 col-md-6">
+                    <x-jet-label for="username" value="{{ __('Username') }}" />
+                    <x-jet-input id="username" type="username" name="username" :value="old('username')" required autocomplete="username" />
+                </div>
 
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="phone" class="py-2">Teléfono</label>
-                                <input id="phone" type="number" class="form-control  mb-2 @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
-                                @error('phone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                <div class="form-group col-sm-12 col-md-6">
+                    <x-jet-label for="email" value="{{ __('Email') }}" />
+                    <x-jet-input id="email" type="email" name="email" :value="old('email')" required autocomplete="email" />
+                </div>
 
-                            <div class="form-group col-sm-12">
-                                <label for="address" class="py-2">Direccion</label>
-                                <input id="address" type="text" class="form-control  mb-2 @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address">
-                                @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                <div class="form-group col-sm-12 col-md-6">
+                    <x-jet-label for="password" value="{{ __('Password') }}" />
+                    <x-jet-input id="password" type="password" name="password" required autocomplete="new-password" />
+                </div>
 
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="username" class="py-2">Usuario</label>
-                                <input id="username" type="text" class="form-control  mb-2 @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username">
-                                @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="email" class="py-2">Correo</label>
-                                <input id="email" type="email" class="form-control mb-2 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="password" class="py-2">Contraseña</label>
-                                <input id="password" type="password" class="form-control mb-2 @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="password-confirm" class="py-2">Confirmar contraseña</label>
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                @error('password_confirmation')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group col-sm-12">
-                                <div class="py-2">
-                                    <button type="submit" class="btn btn-primary">
-                                        Registrarse
-                                    </button>
+                <div class="form-group col-sm-12 col-md-6">
+                    <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                    <x-jet-input id="password_confirmation" type="password" name="password_confirmation" required autocomplete="new-password" />
+                </div>
+
+                @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                    <div class="mt-4">
+                        <x-jet-label for="terms">
+                            <div class="flex items-center">
+                                <x-jet-checkbox name="terms" id="terms"/>
+
+                                <div class="ml-2">
+                                    {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                    ]) !!}
                                 </div>
                             </div>
-                        </form>
+                        </x-jet-label>
                     </div>
+                @endif
+
+                <div class="flex items-center justify-end mt-4">
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                        {{ __('Already registered?') }}
+                    </a>
+
+                    <x-jet-button class="ml-4">
+                        {{ __('Register') }}
+                    </x-jet-button>
                 </div>
-            </main>
-@endsection
+            </form>
+        </div>
+    </x-jet-authentication-card>
+</x-guest-layout>

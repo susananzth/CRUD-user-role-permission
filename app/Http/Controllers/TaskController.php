@@ -53,7 +53,7 @@ class TaskController extends Controller
     public function store(StoreTaskRequest $request)
     {
         abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        // Llama al Model Task para que cree'create()' 
+        // Llama al Model Task para que cree'create()'
         // un nuevo registro con todo lo obtenido'$request' de los inputs
         // una vez que hayan sido validados'->validated()'
         Task::create($request->validated());
