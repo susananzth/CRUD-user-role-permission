@@ -28,7 +28,7 @@
                         <td>
                             <a href="{{ route('task.show', $task->id) }}" target="_blank" rel="noopener noreferrer" class="d-inline"><i class="bi bi-eye"></i></a>
                             <a href="{{ route('task.edit', $task->id) }}" target="_blank" rel="noopener noreferrer" class="d-inline"><i class="bi bi-pencil-square"></i></a>
-                            <form action="{{route('task.destroy', $task->id)}}" method="post" class="d-inline">
+                            <form action="{{route('task.destroy', $task->id)}}" method="post"  class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button type="submit" class="d-inline botder-0"><i class="bi bi-trash"></i></button>

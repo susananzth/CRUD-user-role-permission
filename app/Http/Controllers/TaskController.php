@@ -99,7 +99,7 @@ class TaskController extends Controller
     {
         $task->update($request->validated());
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('task.index');
     }
 
     /**
