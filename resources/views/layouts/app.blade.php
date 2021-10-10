@@ -213,11 +213,6 @@
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
         <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $('#tableList').DataTable();
-            });
-        </script>
         <script src="{{ asset('js/scripts.js') }}" defer></script>
         {{-- Llamada de los script de cada vista --}}
         @yield('scripts')
