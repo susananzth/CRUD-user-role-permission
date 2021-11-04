@@ -85,10 +85,7 @@
                         <div class="accordion-body">
                             <ul class="list-group">
                                 <li class="list-group-item ps-5">
-                                    <a href="" target="_blank" rel="noopener noreferrer">
-                                        <i class="bi bi-card-list me-2"></i>
-                                        Listado
-                                    </a>
+                                    <a href="{{route('role.index')}}"><i class="bi bi-card-list me-2"></i> Listado</a>
                                 </li>
                                 <li class="list-group-item ps-5">
                                     <a href="" target="_blank" rel="noopener noreferrer">

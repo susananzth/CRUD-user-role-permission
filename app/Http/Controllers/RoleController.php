@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class RoleController extends Controller
 {
@@ -14,7 +16,11 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        abort_if(Gate::denies('role_index'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $roles = Role::with('permissions')->get();
+
+        return view('roles.index', compact('roles'));
     }
 
     /**
