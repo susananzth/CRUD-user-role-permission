@@ -8,19 +8,22 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 ### Pre-requisitos 📋
 
-_Que cosas necesitas para poner en marcha el proyecto y como instalarlos_
+_Que herramientas/programas necesitas para poner en marcha el proyecto y como instalarlos_
 
 * GIT [Link](https://git-scm.com/downloads)
 * Entorno de servidor local, Ej: [Laragon](https://laragon.org/download/), [XAMPP](https://www.apachefriends.org/es/index.html) o [LAMPP](https://bitnami.com/stack/lamp/installer).
 * PHP Version 7.4 - 8.0 [Link](https://www.php.net/downloads.php).
 * Manejador de dependencias de PHP [Composer](https://getcomposer.org/download/).
+* Manejador de dependencias de Node [Node JS](https://nodejs.org/en/download/).
+
 
 ### Instalación 🔧
 
 Paso a paso de lo que debes ejecutar para tener el proyecto ejecutandose
 
  1. Primero que nada, clic en Fork 😊
- 2. Inicia el git dentro de tu servidor:
+
+ 2. Desde la consola, inicia el git dentro de tu servidor:
     ```
     git init
     ```
@@ -36,8 +39,12 @@ Paso a paso de lo que debes ejecutar para tener el proyecto ejecutandose
     ```
     composer install
     ```
- 5. Crea el archivo ".env" copiando la información del [ejemplo](https://github.com/susananzth/) y cambiar valores de su Base de datos.
- 6. Ejecute las migraciones
+    ```
+    npm install
+    ```
+ 5. En la carpeta raiz del proyecto, crea el archivo ".env" copiando la información del [ejemplo](https://github.com/susananzth/CRUD-user-role-permission/blob/main/.env.example) y sustituya valores por los del acceso a su Base de datos.
+
+ 6. Ejecute las migraciones y agrega los primeros registros
     ```
     php artisan migrate --seed
     ```
@@ -45,7 +52,11 @@ Paso a paso de lo que debes ejecutar para tener el proyecto ejecutandose
     ```
     php artisan serve
     ```
- 8. Listo, ya podrá visualizr e interactuar con el proyecto en local  😁
+ 8. Ejecute el npm
+    ```
+    npm run watch
+    ```
+ 9. Listo, ya podrá visualizr e interactuar con el proyecto en local  😁
 
 ## Construido con 🛠️
 
