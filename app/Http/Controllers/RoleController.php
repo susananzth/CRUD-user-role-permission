@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
+use App\Models\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,7 +31,11 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        abort_if(Gate::denies('role_add'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $permissions = Permission::pluck('title', 'id');
+
+        return view('roles.create', compact('permissions'));
     }
 
     /**

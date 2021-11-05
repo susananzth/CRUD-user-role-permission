@@ -1138,6 +1138,9 @@ select {
 .m-3 {
 	margin: 0.75rem;
 }
+.m-0 {
+	margin: 0px;
+}
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
@@ -1740,6 +1743,9 @@ select {
 }
 .uppercase {
 	text-transform: uppercase;
+}
+.italic {
+	font-style: italic;
 }
 .leading-5 {
 	line-height: 1.25rem;

@@ -211,8 +211,21 @@
         <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
         <script src="{{ asset('js/scripts.js') }}" defer></script>
+        <script src="{{ asset('js/select2.full.min.js') }}" defer></script>
+        <script>
+            $(document).ready(function() {
+                $('.select-2').select2({
+                    placeholder: 'Selecctione',
+                    language: "es",
+                    theme: "bootstrap-5",
+                    multiple: true,
+                    selectOnClose: true,
+                });
+            });
+        </script>
         {{-- Llamada de los script de cada vista --}}
-        @yield('scripts')
         @livewireScripts
+        @yield('scripts')
+
     </body>
 </html>

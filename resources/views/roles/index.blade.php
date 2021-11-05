@@ -3,7 +3,7 @@
 <x-app-layout>
     <div class="card m-3">
         <div class="card-header">
-            Listado de roles
+            Listado de Roles
         </div>
         <div class="card-body">
             <a href="{{route('role.create')}}" class="btn btn-primary text-white mb-2">Agregar Rol</a>

@@ -89,6 +89,7 @@
     ::-moz-placeholder{color: var(--gray);font-family: 'Montserrat';}
     :-ms-input-placeholder{color: var(--gray);font-family: 'Montserrat';}
     input:-moz-placeholder{color: var(--gray);font-family: 'Montserrat';}
+    label{font-weight: 400;}
   /*%=%=%=%=%=%=% Images %=%=%=%=%=%=%*/
     .img-responsive{height: auto;width: 100%;}
     .img-responsive-50{height: auto;width: 50%;}
@@ -213,5 +214,6 @@
     .page-item.active .page-link{background: var(--highlight); border-color: var(--highlight); color: var(--white);}
     .page-item.active .page-link:hover{background: var(--primary-color);}
     .page-link:focus {box-shadow: 0 0 0 0.25rem rgb(241 193 219 / 46%);}
+    .form-select:focus, .form-control:focus {border-color: var(--primary-color); box-shadow: 0 0 0 0.25rem rgb(241 193 219 / 46%);}
     /*======== Panel Footer ========*/
     .footer{height: 4rem;}
