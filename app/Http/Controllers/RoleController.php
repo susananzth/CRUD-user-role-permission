@@ -33,7 +33,7 @@ class RoleController extends Controller
     {
         abort_if(Gate::denies('role_add'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $permissions = Permission::pluck('title', 'id');
+        $permissions = Permission::all();
 
         return view('roles.create', compact('permissions'));
     }
@@ -46,7 +46,15 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $role = new Role;
+
+        $role->title = $request->title;
+
+        $role->save();
+
+        $role->permissions()->sync($request->input('permission'));
+
+        return redirect()->route('role.index');
     }
 
     /**
