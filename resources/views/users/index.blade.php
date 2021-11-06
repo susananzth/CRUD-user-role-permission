@@ -4,12 +4,12 @@
     <div class="card m-3">
         <div class="card-header">
             <div class="card-title">
-                Listado de tareas
+                Listado de usuarios
             </div>
         </div>
         <div class="card-body">
             <a href="{{route('task.create')}}" target="_blank" rel="noopener noreferrer"
-                class="btn btn-primary text-white mb-2">Nueva tarea</a>
+                class="btn btn-primary text-white mb-2">Agregar usuario</a>
             <table id="tableList" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>

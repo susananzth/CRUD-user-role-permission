@@ -20,14 +20,23 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico')}}" />
         {{-- Estilos --}}
         <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{  asset('css/bootstrap.min.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{  asset('font/bootstrap-icons-1.5.0/bootstrap-icons.css')}}">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap5.min.css">
-        <link rel="stylesheet" type="text/css" href="{{  asset('css/style.css')}}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+        <script src="{{ asset('js/scripts.js') }}" defer></script>
+        <script src="{{ mix('js/app.js') }}" defer></script>
         @yield('css')
         @livewireStyles
+        {{-- Llamada de los script de cada vista --}}
+        @livewireScripts
+        @yield('js')
+        <link rel="stylesheet" type="text/css" href="{{  asset('css/style.css')}}">
+
         {{-- Scripts --}}
-        <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body id="page-top" class="font-sans antialiased">
         <x-jet-banner />
@@ -203,29 +212,5 @@
         </div>
 
         @stack('modals')
-
-        {{-- JS Bootstrap
-        <script src="{{ asset('js/jquery-3.6.0.min.js') }}" defer></script> --}}
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
-        <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
-        <script src="{{ asset('js/scripts.js') }}" defer></script>
-        <script src="{{ asset('js/select2.full.min.js') }}" defer></script>
-        <script>
-            $(document).ready(function() {
-                $('.select-2').select2({
-                    placeholder: 'Selecctione',
-                    language: "es",
-                    theme: "bootstrap-5",
-                    multiple: true,
-                    selectOnClose: true,
-                });
-            });
-        </script>
-        {{-- Llamada de los script de cada vista --}}
-        @livewireScripts
-        @yield('scripts')
-
     </body>
 </html>
