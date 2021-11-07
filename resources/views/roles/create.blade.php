@@ -1,13 +1,30 @@
 @section('title', 'Registrar rol')
 
-@section('css')
+@section('rsc_top')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{  asset('css/forms.css')}}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("select").select2({
+                placeholder: 'Selecctione',
+                language: "es",
+                multiple: true,
+                allowClear: true
+            });
+            $('.select2-container--default').addClass('form-control w-auto p-0');
+            $("select").val('').trigger('change');
+            $('.btn-reset').click(function(){
+                $("select").val('').trigger('change');
+            });
+        });
+    </script>
 @endsection
 
 <x-app-layout>
     <div class="card m-3">
-        <div class="card-header">
+        <div class="card-header fs-5">
             Registrar Rol
         </div>
         <form action="{{route('role.store')}}" method="post">
@@ -37,29 +54,10 @@
                 </div>
             </div>
             <div class="card-footer">
-                <input id="submit" type="submit" value="Guardar" class="btn btn-primary float-end">
-                <input id="reset" type="reset" value="Restablecer campos" class="btn btn-warning btn-reset">
+                <a id="cancel" href="{{route('role.index')}}" class="btn btn-secondary"><i class="bi bi-x-circle"></i> Cancelar</a>
+                <button id="submit" type="submit" class="btn btn-primary float-end"><i class="bi bi-save"></i> Guardar</button>
+                <button id="reset" type="reset" class="btn btn-warning btn-reset me-2 float-end"><i class="bi bi-eraser"></i> Restablecer campos</button>
             </div>
         </form>
     </div>
-    @section('js')
-    <script>
-        $(document).ready(function() {
-
-            $("select").select2({
-                placeholder: 'Selecctione',
-                language: "es",
-                multiple: true,
-                allowClear: true
-            });
-            $('.select2-container--default').addClass('form-control w-auto p-0');
-            $("select").val('').trigger('change');
-            $('.btn-reset').click(function(){
-                $("select").val('').trigger('change');
-            });
-        });
-    </script>
-    @endsection
 </x-app-layout>
-
-

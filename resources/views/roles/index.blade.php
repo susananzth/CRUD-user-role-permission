@@ -1,18 +1,27 @@
 @section('title', 'Listado roles')
 
+@section('rsc_top')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="{{  asset('css/table.css')}}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="{{ asset('js/table.js') }}" defer></script>
+@endsection
+
 <x-app-layout>
     <div class="card m-3">
-        <div class="card-header">
+        <div class="card-header fs-5">
             Listado de Roles
         </div>
         <div class="card-body">
-            <a href="{{route('role.create')}}" class="btn btn-primary text-white mb-2">Agregar Rol</a>
+            <a href="{{route('role.create')}}" class="btn btn-primary text-white mb-2"><i class="bi bi-plus-circle"></i> Agregar Rol</a>
             <table id="tableList" class="table cell-border w-100">
                 <thead>
                     <tr>
-                        <th class="w-50">Título</th>
-                        <th class="w-25">Creado</th>
-                        <th class="text-center w-25">Acción</th>
+                        <th style="width: 45%;">Título</th>
+                        <th style="width: 35%;">Creado</th>
+                        <th class="text-center" style="width: 20%;">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
