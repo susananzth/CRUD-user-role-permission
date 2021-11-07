@@ -21,6 +21,7 @@
         "tailwindcss": "^2.2.19"
     },
     "dependencies": {
-        "ansi-html-community": "0.0.8"
+        "ansi-html-community": "0.0.8",
+        "jquery": "^3.6.0"
     }
 }

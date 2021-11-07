@@ -4,13 +4,13 @@
         {{-- Etiquetas meta --}}
         <meta charset="utf-8">
         <meta name="DC.Language" scheme="RFC1766" content="Spanish">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Página de guía de un crud básico de roles y permisos. Desarrollado por Susana Piñero @susananzth"/>
-        <meta name="keywords" content="Laravel, Laravel 8, PHP, Laravel, Roles, Permisos"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Sistema base de CRUD de Usuarios, Roles y Permisos. Desarrollado por Susana N. Piñero Rodríguez @susananzth"/>
+        <meta name="keywords" content="Laravel, Laravel 8, PHP, Laravel, User, Roles, Permisos"/>
         <meta name="author" content="Susana Piñero Rodríguez" />
-        <meta name="copyright" content="Susana Piñero Rodríguez" />
-        <meta name="reply-to" content="susananzth@gmail.com">
-        <link rev="made" href="mailto:susananzth@gmail.com">
+        <meta name="copyright" content="Susana N. Piñero Rodríguez" />
+        <meta name="reply-to" content="me@susananzth.com">
+        <link rev="made" href="mailto:me@susananzth.com">
         <meta http-equiv="cache-control" content="no-cache"/>
         {{-- CSRF Token --}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -19,24 +19,18 @@
         {{-- Ícono --}}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico')}}" />
         {{-- Estilos --}}
-        <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
+        {{-- <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}"> --}}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
-        <script src="{{ asset('js/scripts.js') }}" defer></script>
-        <script src="{{ mix('js/app.js') }}" defer></script>
-        @yield('css')
-        @livewireStyles
-        {{-- Llamada de los script de cada vista --}}
-        @livewireScripts
-        @yield('js')
-        <link rel="stylesheet" type="text/css" href="{{  asset('css/style.css')}}">
-
+        <link rel="stylesheet" type="text/css" href="{{  asset('css/susananzth.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{  asset('css/layout.css')}}">
         {{-- Scripts --}}
+        {{-- <script src="{{ mix('js/app.js') }}" defer></script> --}}
+        <script src="{{ asset('js/layout.js') }}" defer></script>
+        {{-- Includes --}}
+        @yield('rsc_top')
+        @livewireStyles
     </head>
     <body id="page-top" class="font-sans antialiased">
         <x-jet-banner />
@@ -76,8 +70,8 @@
                                 </li>
                                 <li class="list-group-item ps-5">
                                     <a href="" target="_blank" rel="noopener noreferrer">
-                                        <i class="bi bi-plus-square me-2"></i>
-                                        Nuevo
+                                        <i class="bi bi-plus-circle me-2"></i>
+                                        Agregar
                                     </a>
                                 </li>
                               </ul>
@@ -97,10 +91,7 @@
                                     <a href="{{route('role.index')}}"><i class="bi bi-card-list me-2"></i> Listado</a>
                                 </li>
                                 <li class="list-group-item ps-5">
-                                    <a href="" target="_blank" rel="noopener noreferrer">
-                                        <i class="bi bi-plus-square me-2"></i>
-                                        Nuevo
-                                    </a>
+                                    <a href="{{route('role.create')}}"><i class="bi bi-plus-circle me-2"></i> Agregar</a>
                                 </li>
                             </ul>
                         </div>
@@ -124,8 +115,8 @@
                                 </li>
                                 <li class="list-group-item ps-5">
                                     <a href="" target="_blank" rel="noopener noreferrer">
-                                        <i class="bi bi-plus-square me-2"></i>
-                                        Nuevo
+                                        <i class="bi bi-plus-circle me-2"></i>
+                                        Agregar
                                     </a>
                                 </li>
                             </ul>

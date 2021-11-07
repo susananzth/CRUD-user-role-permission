@@ -1,0 +1,42 @@
+
+th {
+    font-weight: 400;
+}
+th,
+td {
+    border: 0.5px solid var(--gray-light);
+}
+thead,
+tbody,
+tfoot {
+    border: 0 none transparent;
+}
+.table > :not(:last-child) > :last-child > * {
+    border-bottom-color: var(--gray-light);
+}
+div.dataTables_wrapper div.dataTables_length label,
+div.dataTables_wrapper div.dataTables_filter label {
+    font-weight: inherit;
+}
+.dataTables_wrapper > div + div > div {
+    overflow: auto;
+}
+.table {
+    border: 0.5px solid var(--gray-light);
+    border-radius: 0.2rem;
+    min-width: 700px;
+}
+.dataTables_wrapper > div > .col-sm-12 .col-md-6 {
+    display: none;
+}
+.form-select:focus,
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgb(241 193 219 / 46%);
+}
+/* MD Desde 921px en adelante */
+@media (min-width: 768px) {
+    .dataTables_wrapper > div > .col-sm-12 .col-md-6 {
+        display: block;
+    }
+}

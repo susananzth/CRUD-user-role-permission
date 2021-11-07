@@ -1,0 +1,367 @@
+/*  ---------- My theme ----------- */
+/*%=%=%=%=%=%=% Variables %=%=%=%=%=%=%*/
+:root {
+    --primary-color: #ff7cbda6;
+    --secondary-color: #f3cfeb;
+    --tertiary-color: #cc81b8;
+    --highlight: #d52a8b;
+    --purple: #51068a;
+    --light-purple: #bd92dd;
+    --green: #7fffd4;
+    --light: #fff1ff;
+    --white: #ffffff;
+    --gray-light: #e6e2e4;
+    --gray: #a2a2a2;
+    --dark: #303030;
+}
+/*%=%=%=%=%=%=% Fonts %=%=%=%=%=%=%*/
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat"),
+        url("../font/Montserrat-Light.ttf") format("truetype"); /* Safari, Android, iOS */
+    font-weight: normal;
+}
+/* Alternativa de font-face
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap'); */
+/*%=%=%=%=%=%=% Scrollbar %=%=%=%=%=%=%*/
+::-webkit-scrollbar {
+    background: var(--gray-light);
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 2px;
+    cursor: pointer;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+    cursor: pointer;
+}
+/*%=%=%=%=%=%=% Global %=%=%=%=%=%=%*/
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+}
+html {
+    background: var(--green);
+    color: var(--dark);
+    font-size: 16px;
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: linear-gradient(var(--secondary-color), var(--primary-color))
+        fixed;
+    font-size: 1rem;
+}
+
+/*%=%=%=%=%=%=% Display %=%=%=%=%=%=%*/
+.d-block {
+    display: block;
+}
+.d-inline {
+    display: inline;
+}
+.d-inline-block {
+    display: inline-block;
+}
+.d-none {
+    display: none;
+}
+.d-flex {
+    display: flex;
+}
+.fixed-top {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+/*%=%=%=%=%=%=% Margin & Padding %=%=%=%=%=%=%*/
+.m-auto {
+    margin: auto;
+}
+.mx-1 {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+.my-1 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.mx-2 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.my-2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.m-1 {
+    margin: 0.5rem;
+}
+.m-2 {
+    margin: 1rem;
+}
+.mb-1 {
+    margin-bottom: 0.5rem;
+}
+.mb-2 {
+    margin-bottom: 1rem;
+}
+.p-1 {
+    padding: 0.5rem;
+}
+.p-2 {
+    padding: 1rem;
+}
+.pb-1 {
+    padding-bottom: 0.5rem;
+}
+.pb-2 {
+    padding-bottom: 1rem;
+}
+/*%=%=%=%=%=%=% Headings %=%=%=%=%=%=%*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    -webkit-margin-after: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-end: 0;
+    -webkit-margin-start: 0;
+}
+h1 {
+    font-size: 3rem;
+}
+h2 {
+    font-size: 2.5rem;
+}
+h3 {
+    font-size: 2.1rem;
+}
+h4 {
+    font-size: 1.8rem;
+}
+h5 {
+    font-size: 1.5rem;
+}
+h6 {
+    font-size: 1.2rem;
+}
+/*%=%=%=%=%=%=% Text Align %=%=%=%=%=%=%*/
+.text-center {
+    text-align: center;
+}
+.text-justify {
+    text-align: justify;
+}
+/*%=%=%=%=%=%=% UL & OL %=%=%=%=%=%=%*/
+.ul-square {
+    list-style-type: square;
+}
+.ul-circle {
+    list-style-type: circle;
+}
+.ol-zero {
+    list-style-type: decimal-leading-zero;
+}
+.ol-latin {
+    list-style-type: upper-latin;
+}
+.ol-lower-latin {
+    list-style-type: lower-latin;
+}
+.ol-roman {
+    list-style-type: upper-roman;
+}
+.ol-lower-roman {
+    list-style-type: lower-roman;
+}
+.list li {
+    list-style-position: inside;
+    margin: 0;
+    padding-left: 0.35rem;
+}
+/*%=%=%=%=%=%=% Links %=%=%=%=%=%=%*/
+a {
+    text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active {
+    color: var(--highlight);
+    text-decoration: underline;
+}
+/*%=%=%=%=%=%=% Borders %=%=%=%=%=%=%*/
+.radius {
+    border-radius: 0.25rem;
+}
+/*%=%=%=%=%=%=% Content %=%=%=%=%=%=%*/
+.w-auto {
+    width: auto;
+}
+.w-100 {
+    width: 100%;
+}
+.w-50 {
+    width: 50%;
+}
+.w-25 {
+    width: 25%;
+}
+.h-auto {
+    height: auto;
+}
+.h-100 {
+    height: 100%;
+}
+.h-50 {
+    height: 50%;
+}
+.h-25 {
+    height: 25%;
+}
+.content {
+    background: var(--light);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 1440px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.section {
+    width: 100%;
+    min-width: 150px;
+    height: auto;
+}
+code {
+    background-color: var(--gray-light);
+    border-radius: 0.25rem;
+    padding: 0.2rem 0.5rem;
+}
+code .comment {
+    color: var(--gray);
+}
+.gist-code {
+    padding: 0.5rem;
+}
+.gist div.gist-file {
+    margin-bottom: 0;
+}
+blockquote {
+    background: var(--gray-light);
+    padding: 0.5rem;
+}
+/*%=%=%=%=%=%=% Background %=%=%=%=%=%=%*/
+.bg-white {
+    background: var(--white);
+    background-color: var(--white);
+}
+.bg-light {
+    background: var(--light);
+}
+.bg-gray-light {
+    background: var(--gray-light);
+    background-color: var(--gray-light);
+}
+.bg-gray {
+    background: var(--gray);
+    background-color: var(--gray);
+}
+/*%=%=%=%=%=%=% Forms %=%=%=%=%=%=%*/
+::-webkit-input-placeholder {
+    color: var(--gray);
+    font-family: "Montserrat";
+}
+::-moz-placeholder {
+    color: var(--gray);
+    font-family: "Montserrat";
+}
+:-ms-input-placeholder {
+    color: var(--gray);
+    font-family: "Montserrat";
+}
+input:-moz-placeholder {
+    color: var(--gray);
+    font-family: "Montserrat";
+}
+label {
+    font-weight: 400;
+}
+/*%=%=%=%=%=%=% Images %=%=%=%=%=%=%*/
+.img-responsive {
+    height: auto;
+    width: 100%;
+}
+.img-responsive-50 {
+    height: auto;
+    width: 50%;
+}
+.img-rounded {
+    border-radius: 6px;
+}
+.img-circle {
+    border: 4px solid var(--white);
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+.img-thumbnail {
+    border: 4px solid var(--white);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.figcaption {
+    background: var(--gray-light);
+    background-color: var(--gray-light);
+    border-radius: 0.25rem;
+    margin-top: 0.2rem;
+    padding: 0.5rem;
+}
+/*%=%=%=%=%=%=% MEDIA QUERY %=%=%=%=%=%=%*/
+/* Only SM Hasta 576px */
+@media (max-width: 576px) {
+    .w-sm-100 {
+        width: 100%;
+    }
+}
+/* SM Desde 100 px en adelante */
+@media (min-width: 576px) {
+    html,
+    body {
+        font-size: 20px;
+    }
+    .gist-code {
+        padding: 0.5rem 1.5rem;
+    }
+    .w-sm-100 {
+        width: 100%;
+    }
+}
+/* MD Desde 921px en adelante */
+@media (min-width: 768px) {
+}
+/* LG Desde 1 en adelante */
+@media (min-width: 992px) {
+    .w-lg-auto {
+        width: auto;
+    }
+    .content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 992px;
+    }
+}
