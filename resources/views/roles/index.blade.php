@@ -7,6 +7,7 @@
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script src="{{ asset('js/table.js') }}" defer></script>
+    <script src="{{ asset('js/roles.js') }}" defer></script>
 @endsection
 
 <x-app-layout>
@@ -30,7 +31,9 @@
                         <td>{{$rol->title}}</td>
                         <td>{{$rol->created_at}}</td>
                         <td class="text-center">
-                            <a href="{{ route('role.show', $rol->id) }}" class="d-inline"><i class="bi bi-eye"></i></a>
+                            <a href="{{route('role.show', $rol->id)}}" data-id="{{$rol->id}}" data-bs-toggle="modal" data-bs-target="#showModal"
+                                data-bs-tooltip="tooltip" data-bs-placement="top" title="Ver Rol"
+                                class="d-inline btn-show"><i class="bi bi-eye"></i></a>
                             <a href="{{ route('role.edit', $rol->id) }}" class="d-inline"><i class="bi bi-pencil-square"></i></a>
                             <form action="{{route('role.destroy', $rol->id)}}" method="post"  class="d-inline">
                                 @method('delete')
@@ -51,4 +54,5 @@
             </table>
         </div>
     </div>
+    @include('roles.show')
 </x-app-layout>

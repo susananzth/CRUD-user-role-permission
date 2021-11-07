@@ -202,12 +202,14 @@ li.dropdown {
     transform: rotate(-90deg);
 }
 /*======== Content ========*/
-.card-header {
-    background-color: var(--light);
+.card-header,
+.modal-header {
+    background-color: var(--ligth-2);
     border-bottom: 1px solid var(--primary-color);
 }
-.card-footer {
-    background-color: var(--light);
+.card-footer,
+.modal-footer {
+    background-color: var(--ligth-2);
     border-top: 1px solid var(--primary-color);
 }
 .card {
@@ -223,6 +225,17 @@ li.dropdown {
 }
 .page-link:focus {
     box-shadow: 0 0 0 0.25rem rgb(241 193 219 / 46%);
+}
+.spinner {
+    background: white;
+    bottom: 0;
+    left: 0;
+    padding: 2rem;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 2;
 }
 /*======== Panel Footer ========*/
 .footer {

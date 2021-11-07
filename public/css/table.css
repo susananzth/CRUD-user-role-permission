@@ -1,6 +1,7 @@
 
 th {
     font-weight: 400;
+    background: var(--ligth-2) !important;
 }
 th,
 td {

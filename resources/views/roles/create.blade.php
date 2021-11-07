@@ -6,7 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        $(document).ready(function() {
+        document.addEventListener("DOMContentLoaded", function(event) {
             $("select").select2({
                 placeholder: 'Selecctione',
                 language: "es",
@@ -15,7 +15,8 @@
             });
             $('.select2-container--default').addClass('form-control w-auto p-0');
             $("select").val('').trigger('change');
-            $('.btn-reset').click(function(){
+            var button_reset = document.querySelector('.btn-reset');
+            button_reset.addEventListener('click', event => {
                 $("select").val('').trigger('change');
             });
         });
@@ -41,7 +42,7 @@
                         </div>
                     </div>
                     <div class="col-12 mt-2">
-                        <label for="title">Permisos</label>
+                        <label for="select">Permisos</label>
                         <div class="input-group">
                             <span class="input-group-text pe-3" id="selectAddon"><i class="bi bi-list-ul"></i></span>
                             <select id="select" name="permission[]" class="form-control select-2">

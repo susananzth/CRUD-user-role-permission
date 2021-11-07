@@ -65,7 +65,12 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        //
+        abort_if(Gate::denies('role_index'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $data['role'] = $role;
+        $data['permissions'] = $role->permissions;
+
+        return response()->json(['success'=> $data]);
     }
 
     /**
