@@ -63,7 +63,6 @@ body {
         fixed;
     font-size: 1rem;
 }
-
 /*%=%=%=%=%=%=% Display %=%=%=%=%=%=%*/
 .d-block {
     display: block;
@@ -266,6 +265,9 @@ code .comment {
 blockquote {
     background: var(--gray-light);
     padding: 0.5rem;
+}
+b, strong {
+    font-weight: 600;
 }
 /*%=%=%=%=%=%=% Background %=%=%=%=%=%=%*/
 .bg-white {

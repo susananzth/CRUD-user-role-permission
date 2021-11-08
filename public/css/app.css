@@ -1138,11 +1138,11 @@ select {
 .m-3 {
 	margin: 0.75rem;
 }
-.m-0 {
-	margin: 0px;
-}
 .m-auto {
 	margin: auto;
+}
+.m-0 {
+	margin: 0px;
 }
 .mx-auto {
 	margin-left: auto;
