@@ -1,4 +1,4 @@
-@section('title', 'Listado roles')
+@section('title', 'Listado de Roles')
 
 @section('rsc_top')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
@@ -16,6 +16,14 @@
             Listado de Roles
         </div>
         <div class="card-body">
+            <div class="alert alert-success alert-dismissible" role="alert" style="display: none;">
+                <strong id="success_code"></strong> <p id="success_status" class="d-inline-block m-0"></p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-danger alert-dismissible" role="alert" style="display: none;">
+                <strong id="danger_code"></strong> <p id="danger_status" class="d-inline-block m-0"></p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             <a href="{{route('role.create')}}" class="btn btn-primary text-white mb-2"><i class="bi bi-plus-circle"></i> Agregar Rol</a>
             <table id="tableList" class="table cell-border w-100">
                 <thead>
@@ -31,15 +39,17 @@
                         <td>{{$rol->title}}</td>
                         <td>{{$rol->created_at}}</td>
                         <td class="text-center">
-                            <a href="{{route('role.show', $rol->id)}}" data-id="{{$rol->id}}" data-bs-toggle="modal" data-bs-target="#showModal"
+                            <a href="#" data-id="{{$rol->id}}" data-bs-toggle="modal" data-bs-target="#showModal"
                                 data-bs-tooltip="tooltip" data-bs-placement="top" title="Ver Rol"
-                                class="d-inline btn-show"><i class="bi bi-eye"></i></a>
+                                class="d-inline btn-show">
+                                <i class="bi bi-eye"></i>
+                            </a>
                             <a href="{{ route('role.edit', $rol->id) }}" class="d-inline"><i class="bi bi-pencil-square"></i></a>
-                            <form action="{{route('role.destroy', $rol->id)}}" method="post"  class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <button type="submit" class="btn-link d-inline botder-0"><i class="bi bi-trash"></i></button>
-                            </form>
+                            <a href="#" data-id="{{$rol->id}}" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                data-bs-tooltip="tooltip" data-bs-placement="top" title="Eliminar Rol"
+                                class="d-inline btn-delete">
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -55,4 +65,27 @@
         </div>
     </div>
     @include('roles.show')
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title fs-5" id="deleteModalLabel">Eliminar Rol</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="py-3">
+                    ¿Está segura(o) de eliminar el registro?
+                </div>
+            </div>
+            <div class="modal-footer text-end">
+                <form id="formDelete" action="" method="post" >
+                    @method('delete')
+                    @csrf
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
 </x-app-layout>

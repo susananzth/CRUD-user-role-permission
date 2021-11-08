@@ -66,11 +66,20 @@ class RoleController extends Controller
     public function show(Role $role)
     {
         abort_if(Gate::denies('role_index'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
         $data['role'] = $role;
         $data['permissions'] = $role->permissions;
-
-        return response()->json(['success'=> $data]);
+        if ($data['role'] == []) {
+            return response()->json([
+                'code' => '203',
+                'status' => 'No hay resultados para mostrar.',
+            ]);
+        }else{
+            return response()->json([
+                'code' => '200',
+                'status' => 'Ok.',
+                $data,
+            ]);
+        }
     }
 
     /**
@@ -81,7 +90,12 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        abort_if(Gate::denies('role_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $data['permissions'] = Permission::all();
+
+        $data['role'] = $role->load('permissions');
+        return view('roles.edit', $data);
     }
 
     /**
@@ -104,6 +118,10 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        abort_if(Gate::denies('role_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $role->delete();
+
+        return redirect()->route('role.index');
     }
 }
