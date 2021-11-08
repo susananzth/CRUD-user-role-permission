@@ -19,7 +19,7 @@ _Que herramientas/programas necesitas para poner en marcha el proyecto y como in
 
 ### Instalación 🔧
 
-Paso a paso de lo que debes ejecutar para tener el proyecto ejecutandose
+Paso a paso de lo que debes ejecutar para tener el proyecto en su servidor local.
 
  1. Primero que nada, clic en Fork 😊
 
@@ -31,11 +31,11 @@ Paso a paso de lo que debes ejecutar para tener el proyecto ejecutandose
     ```
     git clone https://github.com/susananzth/CRUD-user-role-permission.git
     ```
- 4. Ingresa a la carpeta del repositorio
+ 4. Ingresa a la carpeta del repositorio recien descargado desde tu explorador de archivos o con el siguiente comando:
     ```
     cd CRUD-user-role-permission
     ```
- 5. Instala las dependencias del proyecto
+ 5. Instala las dependencias del proyecto con los siguientes comandos:
     ```
     composer install
     ```
@@ -44,19 +44,19 @@ Paso a paso de lo que debes ejecutar para tener el proyecto ejecutandose
     ```
  5. En la carpeta raiz del proyecto, crea el archivo ".env" copiando la información del [ejemplo](https://github.com/susananzth/CRUD-user-role-permission/blob/main/.env.example) y sustituya valores por los del acceso a su Base de datos.
 
- 6. Ejecute las migraciones y agrega los primeros registros
+ 6. Ejecuta las migraciones y agrega los primeros registros con el siguiente comando:
     ```
     php artisan migrate --seed
     ```
- 7. Inicialice el servidor local
+ 7. Inicializa el servidor local con el siguiente comando:
     ```
     php artisan serve
     ```
- 8. Ejecute el npm
+ 8. Ejecuta el npm:
     ```
     npm run watch
     ```
- 9. Listo, ya podrá visualizr e interactuar con el proyecto en local  😁
+ 9. Listo, ya podrás visualizar e interactuar con el proyecto en local  😁
 
 ## Construido con 🛠️
 
