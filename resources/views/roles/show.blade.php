@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="modal-footer text-end">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Cerrar</button>
         </div>
       </div>
     </div>

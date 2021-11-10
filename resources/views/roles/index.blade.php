@@ -79,8 +79,8 @@
                 <form id="formDelete" action="" method="post" >
                     @method('delete')
                     @csrf
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Cerrar</button>
+                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
                 </form>
             </div>
           </div>
