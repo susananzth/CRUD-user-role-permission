@@ -1,5 +1,8 @@
 
 document.addEventListener("DOMContentLoaded", function (event) {
+    $('.alert').delay(4000).slideUp(500, function(){
+        $(this).alert('close');
+    });
     // Evento del botón mostrar del listado de roles.
     $('.btn-show').on('click', function () {
         // Muestra el spinner visual de 'cargando'.
