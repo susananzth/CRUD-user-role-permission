@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function (event) {
     // Evento del botón mostrar del listado de roles.
-    $('.btn-show').click(function () {
+    $('.btn-show').on('click', function () {
         // Muestra el spinner visual de 'cargando'.
         $("#spinner").hide();
         // Captura el ID del rol almacenado en su atributo 'data-id'
@@ -20,13 +20,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             url: ajax_url,
             dataType: 'json',
             success: function (data) { // Si la consulta fue exisota...
-                //Si el status del response es diferente a '200'.anchor.
-                if (data.status != '200') {
-                    // Muestra mensaje de error en el alert de la vista.
-                    $('#danger_code').html(data.code + ': ');
-                    $('#danger_status').html(data.status);
-                    $('.alert-danger').show();
-                }else{
+                console.log(data);
+                if (data.code == '200') {
                     // Asigna valores en las etiquetas del 'modalShow'.
                     $("#title_show").html(data.role.title);
                     // Crea array con los permisos del rol, concatenando una separación por comas.
@@ -37,18 +32,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     $("#select_show").html(arr);
                     // Oculta el spinner visual de 'cargando'.
                     $("#spinner").hide();
+                }else{
+                    // Cierra el modal
+                    var myModalEl = document.getElementById('showModal');
+                    var modal = bootstrap.Modal.getInstance(myModalEl)
+                    modal.hide();
+                    // Refresca la página para mostrar mensaje de error en el alert de la vista.
+                    location.reload();
                 }
             },
             error: function (data) { // Si la consulta falló...
-                // Muestra mensaje de error en el alert de la vista.
-                $('#danger_code').html(data.code + ': ');
-                $('#danger_status').html(data.status);
-                $('.alert-danger').show();
+                // Refresca la página para mostrar mensaje de error en el alert de la vista.
+                location.reload();
             }
         });
     });
     // Evento del botón eliminar del listado de roles.
-    $('.btn-delete').click(function () {
+    $('.btn-delete').on('click', function () {
         // Captura el ID del rol almacenado en su atributo 'data-id'
         // Luego lo asigna al atributo 'action' del formulario en 'modalDelete'.
         let id = $(this).attr('data-id');

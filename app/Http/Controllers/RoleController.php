@@ -65,21 +65,22 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        abort_if(Gate::denies('role_index'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        $data['role'] = $role;
-        $data['permissions'] = $role->permissions;
-        if ($data['role'] == []) {
+        if (Gate::denies('rolee_index')) {
+            session()->flash('message', 'No cuenta con los permisos necesarios para ejecutar la acción.');
+            session()->flash('alert_class', 'danger');
             return response()->json([
-                'code' => '203',
-                'status' => 'No hay resultados para mostrar.',
+                'code' => '403',
+                'status' => 'Forbidden.'
             ]);
         }else{
             return response()->json([
                 'code' => '200',
                 'status' => 'Ok.',
-                $data,
+                'role' => $role,
+                'permissions' => $role->permissions,
             ]);
         }
+
     }
 
     /**
@@ -118,10 +119,21 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        abort_if(Gate::denies('role_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $role->delete();
-
-        return redirect()->route('role.index');
+        if (Gate::denies('role_delete')) {
+            return redirect()->route('role.index')
+                ->with('message', 'No cuenta con los permisos necesarios para ejecutar la acción.')
+                ->with('alert_class', 'danger');
+        }else{
+            try {
+                $role->delete();
+                return redirect()->route('role.index')
+                    ->with('message', 'Rol eliminado con éxito.')
+                    ->with('alert_class', 'success');
+            } catch (\Throwable $th) {
+                return redirect()->route('role.index')
+                    ->with('message', 'Oops! Ha ocurrido un error.')
+                    ->with('alert_class', 'danger');
+            }
+        }
     }
 }

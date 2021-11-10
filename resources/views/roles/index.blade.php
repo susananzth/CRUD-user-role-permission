@@ -16,14 +16,12 @@
             Listado de Roles
         </div>
         <div class="card-body">
-            <div class="alert alert-success alert-dismissible" role="alert" style="display: none;">
-                <strong id="success_code"></strong> <p id="success_status" class="d-inline-block m-0"></p>
+            @if (session('message'))
+            <div class="alert alert-{{ session('alert_class') ? session('alert_class') : 'info' }} alert-dismissible fade show" role="alert">
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                {{ session('message') }}
             </div>
-            <div class="alert alert-danger alert-dismissible" role="alert" style="display: none;">
-                <strong id="danger_code"></strong> <p id="danger_status" class="d-inline-block m-0"></p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            @endif
             <a href="{{route('role.create')}}" class="btn btn-primary text-white mb-2"><i class="bi bi-plus-circle"></i> Agregar Rol</a>
             <table id="tableList" class="table cell-border w-100">
                 <thead>
