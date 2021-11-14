@@ -29,8 +29,9 @@
             Registrar Rol
         </div>
         <form action="{{route('role.store')}}" method="post">
-        @csrf
+            @csrf
             <div class="card-body">
+                @include('partials.alerts')
                 <div  class="row">
                     <p class="m-0 italic">Los campos marcados con * son requerido</p>
                     <div class="col-12 mt-2">
@@ -38,7 +39,7 @@
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-hash me-1"></i></span>
                             <input id="title" type="text" name="title" placeholder="Nombre del Rol" autocomplete="title"
-                            required maxlength="150" class="form-control">
+                             maxlength="150" class="form-control">
                         </div>
                     </div>
                     <div class="col-12 mt-2">

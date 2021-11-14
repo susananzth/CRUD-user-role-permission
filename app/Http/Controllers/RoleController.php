@@ -51,20 +51,26 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'title' => 'required|string|unique:roles|max:255',
+            'permission.*' => 'nullable|integer|exists:permissions,id',
+        ]);
         try {
             $role = new Role;
-            $role->title = $request->title;
+            $role->title = $validated['title'];
             $role->save();
-            $role->permissions()->sync($request->input('permission'));
+            if (isset($validated['permission'])) {
+                $role->permissions()->sync($validated['permission']);
+            }
             return redirect()->route('role.index')
                 ->with('message', 'Rol registrado con éxito.')
                 ->with('alert_class', 'success');
         } catch (\Throwable $th) {
+            //throw $th;
             return redirect()->route('role.index')
                 ->with('message', 'Oops! Ha ocurrido un error.')
                 ->with('alert_class', 'danger');
         }
-
     }
 
     /**
@@ -145,6 +151,7 @@ class RoleController extends Controller
                     ->with('message', 'Rol eliminado con éxito.')
                     ->with('alert_class', 'success');
             } catch (\Throwable $th) {
+                //throw $th;
                 return redirect()->route('role.index')
                     ->with('message', 'Oops! Ha ocurrido un error.')
                     ->with('alert_class', 'danger');
