@@ -16,12 +16,7 @@
             Listado de Roles
         </div>
         <div class="card-body">
-            @if (session('message'))
-            <div class="alert alert-{{ session('alert_class') ? session('alert_class') : 'info' }} alert-dismissible fade show" role="alert">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                {{ session('message') }}
-            </div>
-            @endif
+            @include('partials.alerts')
             <a href="{{route('role.create')}}" class="btn btn-primary text-white mb-2"><i class="bi bi-plus-circle"></i> Agregar Rol</a>
             <table id="tableList" class="table cell-border w-100">
                 <thead>
