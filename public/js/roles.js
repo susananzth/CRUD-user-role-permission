@@ -28,11 +28,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     // Asigna valores en las etiquetas del 'modalShow'.
                     $("#title_show").html(data.role.title);
                     // Crea array con los permisos del rol, concatenando una separación por comas.
-                    let arr = [];
+                    let arry_list = [];
+                    // 'count' y 'count_array' es para saber cuando concatenar un punto al final del array.
+                    let count = 1;
+                    let count_array = data.permissions.length;
                     data.permissions.forEach(element => {
-                        arr.push(element.title + ', ');
+                        if (count_array == count){
+                            arry_list.push(element.title + '.');
+                        }else{
+                            arry_list.push(element.title + ', ');
+                        }
+                        count++;
                     });
-                    $("#select_show").html(arr);
+                    $("#select_show").html(arry_list);
                     // Oculta el spinner visual de 'cargando'.
                     $("#spinner").hide();
                 }else{
