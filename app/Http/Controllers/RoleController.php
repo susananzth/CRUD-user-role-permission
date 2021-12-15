@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\Permission;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Gate;
 
 class RoleController extends Controller
@@ -67,7 +68,7 @@ class RoleController extends Controller
                 ->with('alert_class', 'success');
         } catch (\Throwable $th) {
             //throw $th;
-            return redirect()->route('role.index')
+            return redirect()->back()->withInput()
                 ->with('message', 'Oops! Ha ocurrido un error.')
                 ->with('alert_class', 'danger');
         }
@@ -129,7 +130,22 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',  Rule::unique('userolesrs')->ignore($role->id),
+            'permission.*' => 'nullable|integer|exists:permissions,id',
+        ]);
+        try {
+            $role->update($validated);
+            $role->permissions()->sync($request->input('permission', []));
+            return redirect()->back()
+                ->with('message', 'Rol actualizado con éxito.')
+                ->with('alert_class', 'success');
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->back()->withInput()
+                ->with('message', 'Oops! Ha ocurrido un error.')
+                ->with('alert_class', 'danger');
+        }
     }
 
     /**
