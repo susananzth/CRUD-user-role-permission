@@ -1,8 +1,8 @@
-<div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="showModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal_show" tabindex="-1" aria-labelledby="modal_show_label" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fs-5" id="showModalLabel">Ver Rol</h5>
+          <h5 class="modal-title fs-5" id="modal_show_label">Ver Rol</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -21,7 +21,7 @@
                 <div class="col-12 mt-2">
                     <label for="select">Permisos</label>
                     <div class="input-group">
-                        <span class="input-group-text pe-3" id="selectAddon"><i class="bi bi-list-ul"></i></span>
+                        <span class="input-group-text pe-3"><i class="bi bi-list-ul"></i></span>
                         <label id="select_show" type="text" class="form-control m-0"></label>
                     </div>
                 </div>

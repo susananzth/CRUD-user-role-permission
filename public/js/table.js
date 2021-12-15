@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    $('#tableList').DataTable({
+document.addEventListener("DOMContentLoaded", function (event) {
+    $('#table_list').DataTable({
         "language": {
             "lengthMenu": "Mostrar _MENU_ registros por página",
             "zeroRecords": "No hay registros para mostrar",

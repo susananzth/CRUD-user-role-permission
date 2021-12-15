@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             url: ajax_url,
             dataType: 'json',
             success: function (data) { // Si la consulta fue exisota...
-                console.log(data);
                 if (data.code == '200') {
                     // Asigna valores en las etiquetas del 'modalShow'.
                     $("#title_show").html(data.role.title);
@@ -45,8 +44,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     $("#spinner").hide();
                 }else{
                     // Cierra el modal
-                    var myModalEl = document.getElementById('showModal');
-                    var modal = bootstrap.Modal.getInstance(myModalEl)
+                    var modal_show = document.getElementById('modal_show');
+                    var modal = bootstrap.Modal.getInstance(modal_show)
                     modal.hide();
                     // Refresca la página para mostrar mensaje de error en el alert de la vista.
                     location.reload();
@@ -63,6 +62,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // Captura el ID del rol almacenado en su atributo 'data-id'
         // Luego lo asigna al atributo 'action' del formulario en 'modalDelete'.
         let id = $(this).attr('data-id');
-        $('#formDelete').attr('action', 'role/' + id);
+        $('#form_delete').attr('action', 'role/' + id);
     });
 });

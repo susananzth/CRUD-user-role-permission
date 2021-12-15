@@ -5,26 +5,9 @@
     <link rel="stylesheet" type="text/css" href="{{  asset('css/forms.css')}}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="{{ asset('js/roles/edit.js') }}" defer></script>
     <script>
         var permissions = @json($role->permissions);
-        var new_arr = [];
-        document.addEventListener("DOMContentLoaded", function(event) {
-            $("select").select2({
-                placeholder: 'Selecctione',
-                language: "es",
-                multiple: true,
-                allowClear: true
-            });
-            $('.select2-container--default').addClass('form-control w-auto p-0');
-            if (permissions == '') {
-                $("select").val('').trigger('change');
-            } else {
-                permissions.forEach(element => {
-                    new_arr.push(element.id);
-                });
-                $("select").val(new_arr).trigger('change');
-            }
-        });
     </script>
 @endsection
 
@@ -51,7 +34,7 @@
                     <div class="col-12 mt-2">
                         <label for="select">Permisos</label>
                         <div class="input-group">
-                            <span class="input-group-text pe-3" id="selectAddon"><i class="bi bi-list-ul"></i></span>
+                            <span class="input-group-text pe-3"><i class="bi bi-list-ul"></i></span>
                             <select id="select" name="permission[]" class="form-control select-2">
                                 @foreach ($permissions as $item)
                                     <option value="{{$item->id}}">{{$item->title}}</option>

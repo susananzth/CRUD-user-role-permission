@@ -10,7 +10,7 @@
         <div class="card-body">
             <a href="{{route('task.create')}}" target="_blank" rel="noopener noreferrer"
                 class="btn btn-primary text-white mb-2">Agregar usuario</a>
-            <table id="tableList" class="table table-striped" style="width:100%">
+            <table id="table_list" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th>ID</th>

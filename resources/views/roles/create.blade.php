@@ -5,22 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{{  asset('css/forms.css')}}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function(event) {
-            $("select").select2({
-                placeholder: 'Selecctione',
-                language: "es",
-                multiple: true,
-                allowClear: true
-            });
-            $('.select2-container--default').addClass('form-control w-auto p-0');
-            $("select").val('').trigger('change');
-            var button_reset = document.querySelector('.btn-reset');
-            button_reset.addEventListener('click', event => {
-                $("select").val('').trigger('change');
-            });
-        });
-    </script>
+    <script src="{{ asset('js/roles/create.js') }}" defer></script>
 @endsection
 
 <x-app-layout>
@@ -45,7 +30,7 @@
                     <div class="col-12 mt-2">
                         <label for="select">Permisos</label>
                         <div class="input-group">
-                            <span class="input-group-text pe-3" id="selectAddon"><i class="bi bi-list-ul"></i></span>
+                            <span class="input-group-text pe-3"><i class="bi bi-list-ul"></i></span>
                             <select id="select" name="permission[]" class="form-control select-2">
                                 @foreach ($permissions as $item)
                                     <option value="{{$item->id}}">{{$item->title}}</option>
