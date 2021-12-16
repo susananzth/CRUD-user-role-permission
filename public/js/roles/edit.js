@@ -15,4 +15,30 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
         $("select").val(new_arr).trigger('change');
     }
+    $("#form_update").validate({
+        onkeyup: false,
+        errorClass: "invalid",
+        validClass: "success",
+        rules: {
+            title: { required: true, maxlength: 255 },
+            select: { required: false }
+        },
+        errorPlacement : function(error, element) {
+            $(element).closest('.input-group').next('.help-block').html(error.html());
+        },
+        highlight : function(element) {
+            $(element).removeClass('success').addClass('invalid');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).removeClass('invalid').addClass('success');
+            $(element).closest('.input-group').next('.help-block').html('');
+        },
+    });
+    $("#form_update").on('submit', function(e){
+        if ($("#form_update").valid()) {
+            return true;
+        } else {
+            return false;
+        }
+    });
 });
