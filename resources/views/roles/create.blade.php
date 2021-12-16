@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{{  asset('css/forms.css')}}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
     <script src="{{ asset('js/roles/create.js') }}" defer></script>
 @endsection
 
@@ -13,7 +14,7 @@
         <div class="card-header fs-5">
             Registrar Rol
         </div>
-        <form action="{{route('role.store')}}" method="post">
+        <form id="form_create" action="{{route('role.store')}}" method="post">
             @csrf
             <div class="card-body">
                 @include('partials.alerts')
@@ -26,6 +27,7 @@
                             <input id="title" type="text" name="title" placeholder="Nombre del Rol" autocomplete="title"
                              maxlength="150" class="form-control">
                         </div>
+                        <span class="help-block"></span>
                     </div>
                     <div class="col-12 mt-2">
                         <label for="select">Permisos</label>
