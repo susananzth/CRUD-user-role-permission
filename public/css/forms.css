@@ -37,3 +37,4 @@
 .form-control.invalid{border-color: red;}
 .form-control.invalid:focus{box-shadow: 0 0 0 0.25rem rgb(255 219 219 / 39%);}
 .help-block{color: red;font-size: .8rem;}
+.success{border-color: rgb(33, 223, 128);}
