@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use App\Models\Permission;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
 use Illuminate\Support\Facades\Gate;
@@ -22,7 +21,7 @@ class RoleController extends Controller
             return redirect()->route('home')
                 ->with('message', 'No cuenta con los permisos necesarios para ejecutar la acción.')
                 ->with('alert_class', 'danger');
-        }else{
+        } else {
             $roles = Role::with('permissions')->get();
             return view('roles.index', compact('roles'));
         }
@@ -39,7 +38,7 @@ class RoleController extends Controller
             return redirect()->route('role.index')
                 ->with('message', 'No cuenta con los permisos necesarios para ejecutar la acción.')
                 ->with('alert_class', 'danger');
-        }else{
+        } else {
             $permissions = Permission::all();
             return view('roles.create', compact('permissions'));
         }
@@ -48,7 +47,7 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\StoreRoleRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreRoleRequest $request)
@@ -89,7 +88,7 @@ class RoleController extends Controller
                 'code' => '403',
                 'status' => 'Forbidden.'
             ]);
-        }else{
+        } else {
             return response()->json([
                 'code' => '200',
                 'status' => 'Ok.',
@@ -112,7 +111,7 @@ class RoleController extends Controller
             return redirect()->route('role.index')
                 ->with('message', 'No cuenta con los permisos necesarios para ejecutar la acción.')
                 ->with('alert_class', 'danger');
-        }else{
+        } else {
             $data['permissions'] = Permission::all();
             $data['role'] = $role->load('permissions');
             return view('roles.edit', $data);
@@ -122,7 +121,7 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\UpdateRoleRequest  $request
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
@@ -131,7 +130,7 @@ class RoleController extends Controller
         $validated = $request->validated();
         try {
             $role->update($validated);
-            $role->permissions()->sync($request->input('permission', []));
+            $role->permissions()->sync($validated['permission']);
             return redirect()->back()
                 ->with('message', 'Rol actualizado con éxito.')
                 ->with('alert_class', 'success');
@@ -155,7 +154,7 @@ class RoleController extends Controller
             return redirect()->route('role.index')
                 ->with('message', 'No cuenta con los permisos necesarios para ejecutar la acción.')
                 ->with('alert_class', 'danger');
-        }else{
+        } else {
             try {
                 $role->delete();
                 return redirect()->route('role.index')
