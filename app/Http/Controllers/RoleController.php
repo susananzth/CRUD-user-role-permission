@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\Permission;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+use App\Http\Requests\StoreRoleRequest;
+use App\Http\Requests\UpdateRoleRequest;
 use Illuminate\Support\Facades\Gate;
 
 class RoleController extends Controller
@@ -50,12 +51,9 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRoleRequest $request)
     {
-        $validated = $request->validate([
-            'title' => 'required|string|unique:roles|max:255',
-            'permission.*' => 'nullable|integer|exists:permissions,id',
-        ]);
+        $validated = $request->validated();
         try {
             $role = new Role;
             $role->title = $validated['title'];
@@ -128,12 +126,9 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(UpdateRoleRequest $request, Role $role)
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',  Rule::unique('userolesrs')->ignore($role->id),
-            'permission.*' => 'nullable|integer|exists:permissions,id',
-        ]);
+        $validated = $request->validated();
         try {
             $role->update($validated);
             $role->permissions()->sync($request->input('permission', []));
