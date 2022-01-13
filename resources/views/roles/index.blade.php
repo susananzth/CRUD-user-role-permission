@@ -13,7 +13,7 @@
 <x-app-layout>
     <div class="card m-3">
         <div class="card-header fs-5">
-            Listado de Roles
+            <i class="bi bi-people me-2"></i> Listado de Roles
         </div>
         <div class="card-body">
             @include('partials.alerts')
@@ -37,7 +37,8 @@
                                 class="d-inline btn-show">
                                 <i class="bi bi-eye"></i>
                             </a>
-                            <a href="{{ route('role.edit', $rol->id) }}" class="d-inline"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{{ route('role.edit', $rol->id) }}" data-bs-tooltip="tooltip"
+                                data-bs-placement="top" title="Editar Rol" class="d-inline"><i class="bi bi-pencil-square"></i></a>
                             <a href="#" data-id="{{$rol->id}}" data-bs-toggle="modal" data-bs-target="#modal_delete"
                                 data-bs-tooltip="tooltip" data-bs-placement="top" title="Eliminar Rol"
                                 class="d-inline btn-delete">
@@ -58,11 +59,11 @@
         </div>
     </div>
     @include('roles.show')
-    <div class="modal fade" id="modal_delete" tabindex="-1" aria-labelledby="modal_delete_label" aria-hidden="true">
+    <div id="modal_delete" tabindex="-1" aria-labelledby="modal_delete_label" aria-hidden="true" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title fs-5" id="modal_delete_label">Eliminar Rol</h5>
+              <h5 id="modal_delete_label" class="modal-title fs-5">Eliminar Rol</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             dataType: 'json',
             success: function (data) { // Si la consulta fue exisota...
                 if (data.code == '200') {
-                    console.log(data);
                     // Asigna valores en las etiquetas del 'modalShow'.
                     $("#name_show").html(data.user.firstname);
                     $("#last_name_show").html(data.user.lastname);
