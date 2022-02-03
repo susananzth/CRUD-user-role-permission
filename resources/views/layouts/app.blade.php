@@ -120,7 +120,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
                         <a href="{{route('profile.show')}}" class="accordion-button collapsed no-toggle">
-                            <i class="bi bi-gear me-2"></i>Account
+                            <i class="bi bi-gear me-2"></i>Perfil
                         </a>
                         </h2>
                     </div>

@@ -19,22 +19,31 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     public function update($user, array $input)
     {
         Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
-        ])->validateWithBag('updateProfileInformation');
+            'firtsname' => ['required', 'string', 'max:200'],
+            'lastname' => ['required', 'string', 'max:200'],
+            'username' => ['required', 'string', 'max:30', Rule::unique('users')->ignore($user->id)],
+            'code' => ['required', 'string', 'max:4'],
+            'phone' => ['required', 'integer', Rule::unique('users')->ignore($user->id)],
+            'email'    => ['required', 'string', 'email', 'max:200', Rule::unique('users')->ignore($user->id)],
+            'address' => ['required', 'string', 'max:250'],
+            'photo' => ['nullable', 'file', 'mimes:jpg,jpeg,png', 'max:1024'],
+        ]);
 
         if (isset($input['photo'])) {
             $user->updateProfilePhoto($input['photo']);
         }
 
-        if ($input['email'] !== $user->email &&
-            $user instanceof MustVerifyEmail) {
+        if ($input['email'] !== $user->email && $user instanceof MustVerifyEmail) {
             $this->updateVerifiedUser($user, $input);
         } else {
             $user->forceFill([
-                'name' => $input['name'],
+                'firtsname' => $input['firtsname'],
+                'lastname' => $input['lastname'],
+                'username' => $input['username'],
+                'code' => $input['code'],
+                'phone' => $input['phone'],
                 'email' => $input['email'],
+                'address' => $input['address'],
             ])->save();
         }
     }
@@ -49,8 +58,13 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     protected function updateVerifiedUser($user, array $input)
     {
         $user->forceFill([
-            'name' => $input['name'],
+            'firtsname' => $input['firtsname'],
+            'lastname' => $input['lastname'],
+            'username' => $input['username'],
+            'code' => $input['code'],
+            'phone' => $input['phone'],
             'email' => $input['email'],
+            'address' => $input['address'],
             'email_verified_at' => null,
         ])->save();
 

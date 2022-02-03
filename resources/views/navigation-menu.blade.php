@@ -8,10 +8,6 @@
             <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                 {{ __('Dashboard') }}
             </x-jet-nav-link>
-
-            <x-jet-nav-link href="{{ route('task.index') }}" :active="request()->routeIs('task.index')">
-                {{ __('Tasks') }}
-            </x-jet-nav-link>
         </div>--}}
         <!-- Teams Dropdown -->
         @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
@@ -73,9 +69,9 @@
                 @endif
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                <li><span class="dropdown-item-text text-muted" style="width: max-content;">{{ __('Manage Account') }}</span></li>
+                <li><span class="dropdown-item-text text-muted" style="width: max-content;">{{ __('Configuración de la cuenta') }}</span></li>
                 <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                    {{ __('Profile') }}
+                    {{ __('Perfil') }}
                 </x-jet-dropdown-link>
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                     <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
@@ -91,7 +87,7 @@
                     <x-jet-dropdown-link href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Cerrar sesión') }}
                     </x-jet-dropdown-link>
                 </form>
             </ul>
