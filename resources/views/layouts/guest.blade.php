@@ -38,7 +38,7 @@
                 <div>
                     <a class="no-style" href="{{ url('/') }}">
                         <h3 class="float-md-start mb-0">
-                            <img src="img\logo.png" class="d-inline-block logo" alt="susananzth" loading="lazy">
+                            <x-jet-application-mark/>
                             SusanaNzth
                         </h3>
                     </a>

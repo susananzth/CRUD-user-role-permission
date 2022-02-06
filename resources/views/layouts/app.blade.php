@@ -41,7 +41,7 @@
 
             <div class="sidebar bg-gradient-primary flex-shrink-0 p-3">
                 <a href="/" class="d-flex align-items-center pb-3 mb-3 text-white">
-                    <x-jet-application-mark  />
+                    <x-jet-application-mark />
                   <span class="ms-2 fs-5 fw-semibold">SusanaNzth</span>
                 </a>
 

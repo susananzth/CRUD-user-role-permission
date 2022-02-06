@@ -1,4 +1,4 @@
-# CRUD de roles, permisos y usuarios en Laravel 8.79 🤓
+# CRUD de roles, permisos y usuarios en Laravel 8.* 🤓
 
 Sistema web para crear, modificar, eliminar y listar usuarios, roles y permisos.
 
@@ -65,7 +65,7 @@ Las herramientas que utilice para crear este proyecto:
 * Framework de PHP [Laravel](https://laravel.com/docs/8.x).
 * Toolkit de diseño [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/).
 * Libería de JavaScript [JQuery](https://jquery.com/).
-* Plugin de validación de formulario [JQueryValidation/](https://jqueryvalidation.org/).
+* Plugin de validación de formulario [JQueryValidation](https://jqueryvalidation.org/).
 
 ## Autores ✒️
 
