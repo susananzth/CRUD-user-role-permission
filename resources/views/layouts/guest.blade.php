@@ -12,6 +12,7 @@
         <meta name="reply-to" content="me@susananzth.com">
         <link rev="made" href="mailto:me@susananzth.com">
         <meta http-equiv="cache-control" content="no-cache"/>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         {{-- CSRF Token --}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
         {{-- Título de la página --}}
