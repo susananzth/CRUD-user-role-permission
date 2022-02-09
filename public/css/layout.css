@@ -71,20 +71,18 @@ textarea {
 }
 /*%=%=%=%=%=%=% extarnal - auth %=%=%=%=%=%=%*/
 /*======== extarnal ========*/
-.body-external {
-    background: var(--primary-color);
-}
 .no-style:focus,
 .no-style:link,
 .no-style.visited {
     color: var(--white);
 }
 .nav-masthead .nav-link {
-    padding: 0.25rem 0;
-    font-weight: 700;
-    color: var(--gray-light);
     background-color: transparent;
+    border: none;
     border-bottom: 0.25rem solid transparent;
+    color: var(--gray-light);
+    font-weight: 700;
+    padding: 0.25rem 0;
 }
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {

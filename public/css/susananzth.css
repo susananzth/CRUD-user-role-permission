@@ -47,20 +47,20 @@
     font-weight: 300;
 }
 html {
-    background: var(--green);
+    background: var(--primary-color);
+    background: linear-gradient(180deg, var(--primary-color) 0%, var(--tertiary-color) 45%, var(--tertiary-color) 70%, var(--secondary-color) 100%) fixed;
     color: var(--dark);
     font-size: 16px;
 }
 html,
 body {
+    background-color: transparent;
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
 }
 body {
-    background: linear-gradient(var(--secondary-color), var(--primary-color))
-        fixed;
     font-size: 1rem;
 }
 /*%=%=%=%=%=%=% Display %=%=%=%=%=%=%*/
@@ -110,6 +110,9 @@ body {
 }
 .m-2 {
     margin: 1rem;
+}
+.ms-2 {
+    margin-left: 1rem;
 }
 .mb-1 {
     margin-bottom: 0.5rem;
