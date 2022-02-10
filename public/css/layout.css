@@ -54,6 +54,7 @@ textarea {
     color: var(--white);
     background-color: var(--highlight);
     border-color: var(--highlight);
+    box-shadow: 0 0 0 0.25rem rgb(241 193 219 / 15%);
 }
 .btn-check:focus + .btn-primary,
 .btn-primary:focus,
@@ -71,16 +72,13 @@ textarea {
 }
 /*%=%=%=%=%=%=% extarnal - auth %=%=%=%=%=%=%*/
 /*======== extarnal ========*/
-.no-style:focus,
-.no-style:link,
-.no-style.visited {
-    color: var(--white);
+.nav-link {
+    padding: 0
 }
 .nav-masthead .nav-link {
     background-color: transparent;
     border: none;
     border-bottom: 0.25rem solid transparent;
-    color: var(--gray-light);
     font-weight: 700;
     padding: 0.25rem 0;
 }
@@ -106,7 +104,7 @@ textarea {
 }
 /*======== auth ========*/
 .card-auth {
-    background: #ffffff30;
+    background: #ffffff78;
     border-radius: 0.25rem;
     padding: 2rem 3rem;
 }

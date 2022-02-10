@@ -50,24 +50,24 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
                         <a href="{{route('home')}}" class="accordion-button collapsed no-toggle">
-                            <i class="bi bi-house-door me-2"></i>Inicio
+                            <i class="bi bi-house-door me-2"></i>@lang('Home')
                         </a>
                         </h2>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <i class="bi bi-person-square me-2"></i>Usuarios
+                            <i class="bi bi-person-square me-2"></i>@lang('Users')
                         </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionMenu">
                         <div class="accordion-body">
                             <ul class="list-group">
                                 <li class="list-group-item ps-5">
-                                    <a href="{{route('user.index')}}"><i class="bi bi-card-list me-2"></i> Listado</a>
+                                    <a href="{{route('user.index')}}"><i class="bi bi-card-list me-2"></i> @lang('List')</a>
                                 </li>
                                 <li class="list-group-item ps-5">
-                                    <a href="{{route('user.create')}}"><i class="bi bi-plus-circle me-2"></i> Agregar</a>
+                                    <a href="{{route('user.create')}}"><i class="bi bi-plus-circle me-2"></i> @lang('Add')</a>
                                 </li>
                               </ul>
                         </div>
@@ -76,43 +76,17 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <i class="bi bi-people me-2"></i>Roles
+                            <i class="bi bi-people me-2"></i>@lang('Roles')
                         </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionMenu">
                         <div class="accordion-body">
                             <ul class="list-group">
                                 <li class="list-group-item ps-5">
-                                    <a href="{{route('role.index')}}"><i class="bi bi-card-list me-2"></i> Listado</a>
+                                    <a href="{{route('role.index')}}"><i class="bi bi-card-list me-2"></i> @lang('List')</a>
                                 </li>
                                 <li class="list-group-item ps-5">
-                                    <a href="{{route('role.create')}}"><i class="bi bi-plus-circle me-2"></i> Agregar</a>
-                                </li>
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFour">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            <i class="bi bi-shield-shaded me-2"></i>Permisos
-                        </button>
-                        </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionMenu">
-                        <div class="accordion-body">
-                            <ul class="list-group">
-                                <li class="list-group-item ps-5">
-                                    <a href="" target="_blank" rel="noopener noreferrer">
-                                        <i class="bi bi-card-list me-2"></i>
-                                        Listado
-                                    </a>
-                                </li>
-                                <li class="list-group-item ps-5">
-                                    <a href="" target="_blank" rel="noopener noreferrer">
-                                        <i class="bi bi-plus-circle me-2"></i>
-                                        Agregar
-                                    </a>
+                                    <a href="{{route('role.create')}}"><i class="bi bi-plus-circle me-2"></i> @lang('Add')</a>
                                 </li>
                             </ul>
                         </div>
@@ -121,7 +95,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
                         <a href="{{route('profile.show')}}" class="accordion-button collapsed no-toggle">
-                            <i class="bi bi-gear me-2"></i>Perfil
+                            <i class="bi bi-gear me-2"></i>@lang('Profile')
                         </a>
                         </h2>
                     </div>
@@ -162,7 +136,7 @@
                 <footer class="footer bg-white">
                     <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; SusanaNzth 2021</span>
+                        <span>Copyright &copy; SusanaNzth 2021 - 2022</span>
                     </div>
                     </div>
                 </footer>{{-- Fin del Footer --}}
@@ -173,36 +147,7 @@
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-angle-up"></i>
         </a>
-
-        {{-- Ventana modal de cerrar sesión --}}
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModal1" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="logoutModal1">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">Logout</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-                </div>
-            </div>
-            </div>
-        </div>
-
+        
         @stack('modals')
-        <script>
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-tooltip="tooltip"]'));
-            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl);
-            })
-        </script>
     </body>
 </html>

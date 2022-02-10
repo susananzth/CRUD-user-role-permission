@@ -37,7 +37,7 @@
         <div class="col-12 col-md-10 col-xxl-8 d-flex h-100 p-3 mx-auto flex-column">
             <header class="mb-auto text-white ">
                 <div>
-                    <a class="no-style" href="{{ url('/') }}">
+                    <a class="nav-link" href="{{ url('/') }}">
                         <h3 class="float-md-start mb-0">
                             <x-jet-application-mark/>
                             SusanaNzth
@@ -48,27 +48,25 @@
                         <a class="nav-link" href="{{ url('/') }}">@lang('Home')</a>
                         @if (Route::has('login'))
                             @auth
-                                <a class="nav-link" href="{{ route('home') }}">Panel administrativo</a>
+                                <a class="nav-link" href="{{ route('home') }}">@lang('Administrative Dashboard')</a>
                             @else
-                                <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
+                                <a class="nav-link" href="{{ route('login') }}">@lang('Log In')</a>
 
                                 @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">Registrarse</a>
+                                    <a class="nav-link" href="{{ route('register') }}">@lang('Sign in')</a>
                                 @endif
                             @endauth
                         @endif
                         @if(count(config('app.languages')) > 1)
                         <div class="dropdown ms-2">
-                            <button id="btn_language" type="button" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link dropdown-toggle">
+                            <button id="dropdown_language" type="button" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link dropdown-toggle">
                                 <i class="bi bi-globe"></i> {{ strtoupper(app()->getLocale()) }}
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="btn_language">
+                            <ul class="dropdown-menu" aria-labelledby="dropdown_language">
                                 @foreach(config('app.languages') as $lang_locale => $lang_name)
-                                    <li>
-                                        <a class="dropdown-item" href="{{ url()->current() }}?lang={{ $lang_locale }}">
-                                            @lang($lang_name) ({{ strtoupper($lang_locale) }})
-                                        </a>
-                                    </li>
+                                    <x-jet-dropdown-link href="{{ url()->current() }}?lang={{ $lang_locale }}">
+                                        @lang($lang_name) ({{ strtoupper($lang_locale) }})
+                                    </x-jet-dropdown-link>
                                 @endforeach
                             </ul>
                         </div>
@@ -79,9 +77,9 @@
 
             {{ $slot }}
 
-            <footer class="mt-auto text-white ">
-                <p>Proyecto desarrollado por Susana Piñero Rodríguez</p>
-                <p>Copyright © Susana Piñero Rodríguez 2021</p>
+            <footer class="mt-auto">
+                <p class="m-0">@lang('Project developed by') Susana Piñero Rodríguez</p>
+                <p>Copyright © Susana Piñero Rodríguez 2021 - 2022</p>
             </footer>
         </div>
     </body>
