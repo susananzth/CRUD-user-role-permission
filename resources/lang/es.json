@@ -28,7 +28,8 @@
     "User creation project and assignment of roles and permissions. It serves as the basis for any project.": "Proyecto de creación de usuarios y asignación de roles y permisos. Sirve de base para cualquier proyecto.",
     "Developed with Laravel 8.*, includes Laravel Jetstream authentication system and Bootstrap 5 design toolkit.": "Desarrollado con Laravel 8.*, incluye sistema de autenticación de Laravel Jetstream y kit de herramientas diseño de Bootstrap 5.",
     "More information": "Más información",
-    "": "",
-    "": "",
-    "": "",
+    "Email": "Correo electrónico",
+    "Password": "Contraseña",
+    "Remember me": "Recuérdame",
+    "Forgot your password?": "¿Olvidó contraseña?"
 }
