@@ -18,4 +18,9 @@ return [
     'throttled' => 'Por favor espere antes de intentar de nuevo.',
     'token'     => 'El token de restablecimiento de contraseña es inválido.',
     'user'      => 'No encontramos ningún usuario con ese correo electrónico.',
+    'Recover password' => 'Recuperar contraseña',
+    'Hello' => 'Hola',
+    'You are receiving this email because you made a password recovery request for your account.' => 'Estás recibiendo este correo porque hiciste una solicitud de recuperación de contraseña para tu cuenta.',
+    'If you did not make this request, no further action is required.' => 'Si no realizaste esta solicitud, no se requiere realizar ninguna otra acción.',
+    'Greetings' => 'Saludos'
 ];
