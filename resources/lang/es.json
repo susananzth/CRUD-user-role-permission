@@ -36,5 +36,7 @@
     "Whoops! Something went wrong.": "¡Vaya! Algo salió mal.",
     "Email Password Reset Link": "Enviar enlace de restablecimiento de contraseña",
     "All rights reserved.": "Todos los derechos reservados.",
-    "If you're having trouble clicking the \":actionText\" button, copy and paste the URL below\n into your web browser:": "Si tiene problemas para hacer clic en el botón \":actionText\", copie y pegue la siguiente URL\n en su navegador web:"
+    "If you're having trouble clicking the \":actionText\" button, copy and paste the URL below\n into your web browser:": "Si tiene problemas para hacer clic en el botón \":actionText\", copie y pegue la siguiente URL\n en su navegador web:",
+    "Reset password": "Restablecer contraseña",
+    "Confirm password": "Confirmar contraseña"
 }
