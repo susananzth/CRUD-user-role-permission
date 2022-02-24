@@ -38,5 +38,14 @@
     "All rights reserved.": "Todos los derechos reservados.",
     "If you're having trouble clicking the \":actionText\" button, copy and paste the URL below\n into your web browser:": "Si tiene problemas para hacer clic en el botón \":actionText\", copie y pegue la siguiente URL\n en su navegador web:",
     "Reset password": "Restablecer contraseña",
-    "Confirm password": "Confirmar contraseña"
+    "Confirm password": "Confirmar contraseña",
+    "Register": "Registrarse",
+    "User register": "Registro de usuario",
+    "Firtsname": "Nombres",
+    "Lastname": "Apelidos",
+    "Country code": "Código de país",
+    "Phone number": "Número de teléfono",
+    "Address": "Dirección",
+    "Username": "Usuario",
+    "Already registered? Log in":"¿Ya estás registrado(a)? Inicia sesión"
 }
