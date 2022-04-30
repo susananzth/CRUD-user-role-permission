@@ -1,6 +1,6 @@
 var arr_roles = [];
 document.addEventListener("DOMContentLoaded", function(event) {
-    $("#menu_administrators").addClass("active");
+    $("#menu_users").addClass("active");
     $("#code, #country, #state, #city").select2({
         placeholder: 'Selecctione',
         language: "es",

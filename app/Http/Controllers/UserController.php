@@ -254,7 +254,7 @@ class UserController extends Controller
             try {
                 $user->delete();
                 return redirect()->route('user.index')
-                    ->with('message', trans('message.Admin removed successfully.'))
+                    ->with('message', trans('message.User removed successfully.'))
                     ->with('alert_class', 'success');
             } catch (\Throwable $th) {
                 // throw $th;

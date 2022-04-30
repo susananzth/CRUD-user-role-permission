@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function (event) {
-    $("#menu_administrators").addClass("active");
+    $("#menu_users").addClass("active");
     $('.alert').delay(4000).slideUp(500, function(){
         $(this).alert('close');
     });

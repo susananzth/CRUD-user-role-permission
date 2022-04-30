@@ -56,9 +56,9 @@
 
                 <hr class="sidebar-divider my-0">
                 @if (!Gate::denies('user_index'))
-                <div id="menu_administrators" class="btn-group nav-item dropend">
+                <div id="menu_users" class="btn-group nav-item dropend">
                     <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-person-check-fill"></i><span>@lang('Administrators')</span>
+                        <i class="bi bi-person-check-fill"></i><span>@lang('Users')</span>
                     </button>
                     <ul class="dropdown-menu ms-1">
                         <li>
@@ -187,7 +187,7 @@
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-angle-up"></i>
         </a>
-        
+
         @stack('modals')
     </body>
 </html>
