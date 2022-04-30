@@ -1,5 +1,6 @@
 var new_arr = [];
 document.addEventListener("DOMContentLoaded", function(event) {
+    $("#menu_roles").addClass("active");
     $("select").select2({
         placeholder: 'Selecctione',
         language: "es",
@@ -21,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         validClass: "success",
         rules: {
             title: { required: true, maxlength: 255 },
-            select: { required: false }
         },
         errorPlacement : function(error, element) {
             $(element).closest('.input-group').next('.help-block').html(error.html());
@@ -36,9 +36,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
     $("#form_update").on('submit', function(e){
         if ($("#form_update").valid()) {
-            return true;
+            if ($("#select").val() == "") {
+                $($("#select")).removeClass('success').addClass('invalid');
+                $($("#select")).closest('.input-group').next('.help-block').html("Este campo es obligatorio.");
+                return false;
+            } else {
+                $($("#select")).removeClass('invalid').addClass('success');
+                $($("#select")).closest('.input-group').next('.help-block').html('');
+                return true;
+            }
         } else {
             return false;
         }
     });
-});
+})

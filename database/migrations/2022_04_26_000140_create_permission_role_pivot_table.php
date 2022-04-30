@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Permission;
+use App\Models\Role;
 
 class CreatePermissionRolePivotTable extends Migration
 {
@@ -14,8 +16,10 @@ class CreatePermissionRolePivotTable extends Migration
     public function up()
     {
         Schema::create('permission_role', function (Blueprint $table) {
-            $table->foreignId('role_id')->references('id')->on('roles')->cascadeOnDelete();
-            $table->foreignId('permission_id')->references('id')->on('permissions')->cascadeOnDelete();
+            $table->foreignIdFor(Permission::class)->constrained()->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->foreignIdFor(Role::class)->constrained()->onUpdate('cascade')
+            ->onDelete('cascade');
         });
     }
 

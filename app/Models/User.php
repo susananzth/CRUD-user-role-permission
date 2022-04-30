@@ -18,12 +18,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firtsname',
+        'firstname',
         'lastname',
         'username',
-        'code',
+        'phone_code_id',
         'phone',
         'email',
+        'city_id',
         'address',
         'password',
     ];
@@ -65,5 +66,21 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    /**
+     * Get the city that owns the user.
+     */
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    /**
+     * Get the country that owns the user.
+     */
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'phone_code_id');
     }
 }

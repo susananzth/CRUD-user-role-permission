@@ -19,7 +19,7 @@ class RoleController extends Controller
     {
         if (Gate::denies('role_index')) {
             return redirect()->route('home')
-                ->with('message', 'No cuenta con los permisos necesarios para ejecutar la acción.')
+                ->with('message', trans('message.You do not have the necessary permissions to execute the action.'))
                 ->with('alert_class', 'danger');
         } else {
             $roles = Role::with('permissions')->get();
@@ -36,7 +36,7 @@ class RoleController extends Controller
     {
         if (Gate::denies('role_add')) {
             return redirect()->route('role.index')
-                ->with('message', 'No cuenta con los permisos necesarios para ejecutar la acción.')
+                ->with('message', trans('message.You do not have the necessary permissions to execute the action.'))
                 ->with('alert_class', 'danger');
         } else {
             $permissions = Permission::all();
@@ -66,7 +66,7 @@ class RoleController extends Controller
         } catch (\Throwable $th) {
             //throw $th;
             return redirect()->back()->withInput()
-                ->with('message', 'Oops! Ha ocurrido un error.')
+                ->with('message', trans('message.Oops! An error has occurred.'))
                 ->with('alert_class', 'danger');
         }
     }
@@ -82,7 +82,7 @@ class RoleController extends Controller
         // Valida si tiene permiso de ver.
         if (Gate::denies('role_index')) {
             // Muestra mensaje en alert de la vista. Función en JS refresca navegador.
-            session()->flash('message', 'No cuenta con los permisos necesarios para ejecutar la acción.');
+            session()->flash('message', trans('message.You do not have the necessary permissions to execute the action.'));
             session()->flash('alert_class', 'danger');
             return response()->json([
                 'code' => '403',
@@ -109,12 +109,18 @@ class RoleController extends Controller
     {
         if (Gate::denies('role_edit')) {
             return redirect()->route('role.index')
-                ->with('message', 'No cuenta con los permisos necesarios para ejecutar la acción.')
+                ->with('message', trans('message.You do not have the necessary permissions to execute the action.'))
                 ->with('alert_class', 'danger');
         } else {
-            $data['permissions'] = Permission::all();
-            $data['role'] = $role->load('permissions');
-            return view('roles.edit', $data);
+            if ($role->id == 1) {
+                return redirect()->route('role.index')
+                ->with('message', trans('message.Editing or deleting parent roles is not allowed. Contact the administrator.'))
+                ->with('alert_class', 'danger');
+            } else {
+                $data['permissions'] = Permission::all();
+                $data['role'] = $role->load('permissions');
+                return view('roles.edit', $data);
+            }
         }
     }
 
@@ -137,7 +143,7 @@ class RoleController extends Controller
         } catch (\Throwable $th) {
             //throw $th;
             return redirect()->back()->withInput()
-                ->with('message', 'Oops! Ha ocurrido un error.')
+                ->with('message', trans('message.Oops! An error has occurred.'))
                 ->with('alert_class', 'danger');
         }
     }
@@ -152,19 +158,25 @@ class RoleController extends Controller
     {
         if (Gate::denies('role_delete')) {
             return redirect()->route('role.index')
-                ->with('message', 'No cuenta con los permisos necesarios para ejecutar la acción.')
+                ->with('message', trans('message.You do not have the necessary permissions to execute the action.'))
                 ->with('alert_class', 'danger');
         } else {
-            try {
-                $role->delete();
+            if ($role->id == 1) {
                 return redirect()->route('role.index')
-                    ->with('message', 'Rol eliminado con éxito.')
-                    ->with('alert_class', 'success');
-            } catch (\Throwable $th) {
-                //throw $th;
-                return redirect()->route('role.index')
-                    ->with('message', 'Oops! Ha ocurrido un error.')
-                    ->with('alert_class', 'danger');
+                ->with('message', trans('message.Editing or deleting parent roles is not allowed. Contact the administrator.'))
+                ->with('alert_class', 'danger');
+            } else {
+                try {
+                    $role->delete();
+                    return redirect()->route('role.index')
+                        ->with('message', 'Rol eliminado con éxito.')
+                        ->with('alert_class', 'success');
+                } catch (\Throwable $th) {
+                    //throw $th;
+                    return redirect()->route('role.index')
+                        ->with('message', trans('message.Oops! An error has occurred.'))
+                        ->with('alert_class', 'danger');
+                }
             }
         }
     }
