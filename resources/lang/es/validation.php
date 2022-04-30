@@ -173,7 +173,7 @@ return [
         'description'           => 'descripción',
         'email'                 => 'correo electrónico',
         'excerpt'               => 'extracto',
-        'first_name'            => 'nombre',
+        'firstname'            => 'nombre',
         'gender'                => 'género',
         'hour'                  => 'hora',
         'last_name'             => 'apellido',
