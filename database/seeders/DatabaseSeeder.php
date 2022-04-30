@@ -18,6 +18,11 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             RoleSeeder::class,
             PermissionRoleSeeder::class,
+            CountrySeeder::class,
+            StateSeeder::class,
+            CitySeeder::class,
+            CurrencySeeder::class,
+            CountryCurrencySeeder::class,
             UserSeeder::class,
             RoleUserSeeder::class,
         ]);

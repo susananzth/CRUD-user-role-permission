@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" type="text/css" href="{{  asset('css/susananzth.css')}}">
         <link rel="stylesheet" type="text/css" href="{{  asset('css/layout.css')}}">
         {{-- Scripts --}}
@@ -40,67 +41,106 @@
 
             {{-- Barra laterar izquierda --}}
 
-            <div class="sidebar bg-gradient-primary flex-shrink-0 p-3">
-                <a href="/" class="d-flex align-items-center pb-3 mb-3 text-white">
-                    <x-jet-application-mark />
-                  <span class="ms-2 fs-5 fw-semibold">SusanaNzth</span>
+            <ul class="navbar-nav sidebar bg-gradient-primary">
+                <a href="{{ route('home') }}" class="sidebar-brand d-flex align-items-center justify-content-center">
+                    <img class="logo" style="width: 7rem;" src="{{ asset('img/logo1.png')}}" alt="Vizionn">
                 </a>
 
-                <div class="accordion" id="accordionMenu">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                        <a href="{{route('home')}}" class="accordion-button collapsed no-toggle">
-                            <i class="bi bi-house-door me-2"></i>@lang('Home')
-                        </a>
-                        </h2>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <i class="bi bi-person-square me-2"></i>@lang('Users')
-                        </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionMenu">
-                        <div class="accordion-body">
-                            <ul class="list-group">
-                                <li class="list-group-item ps-5">
-                                    <a href="{{route('user.index')}}"><i class="bi bi-card-list me-2"></i> @lang('List')</a>
-                                </li>
-                                <li class="list-group-item ps-5">
-                                    <a href="{{route('user.create')}}"><i class="bi bi-plus-circle me-2"></i> @lang('Add')</a>
-                                </li>
-                              </ul>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <i class="bi bi-people me-2"></i>@lang('Roles')
-                        </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionMenu">
-                        <div class="accordion-body">
-                            <ul class="list-group">
-                                <li class="list-group-item ps-5">
-                                    <a href="{{route('role.index')}}"><i class="bi bi-card-list me-2"></i> @lang('List')</a>
-                                </li>
-                                <li class="list-group-item ps-5">
-                                    <a href="{{route('role.create')}}"><i class="bi bi-plus-circle me-2"></i> @lang('Add')</a>
-                                </li>
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                        <a href="{{route('profile.show')}}" class="accordion-button collapsed no-toggle">
-                            <i class="bi bi-gear me-2"></i>@lang('Profile')
-                        </a>
-                        </h2>
-                    </div>
+                <hr class="sidebar-divider my-0">
+
+                <div id="menu_dashboard" class="nav-item">
+                    <a href="{{route('home')}}" class="nav-link">
+                        <i class="bi bi-speedometer2"></i><span>@lang('Home')</span>
+                    </a>
                 </div>
-            </div>
+
+                <hr class="sidebar-divider my-0">
+                @if (!Gate::denies('user_index'))
+                <div id="menu_administrators" class="btn-group nav-item dropend">
+                    <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-check-fill"></i><span>@lang('Administrators')</span>
+                    </button>
+                    <ul class="dropdown-menu ms-1">
+                        <li>
+                            <a href="{{route('user.index')}}"><i class="bi bi-card-list me-2"></i> @lang('List')</a>
+                        </li>
+                        <li>
+                            <a href="{{route('user.create')}}"><i class="bi bi-plus-circle me-2"></i> @lang('Add')</a>
+                        </li>
+                    </ul>
+                </div>
+                @endif
+                @if (!Gate::denies('country_index'))
+                <div id="menu_countries" class="btn-group nav-item dropend">
+                    <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe"></i><span>@lang('Countries')</span>
+                    </button>
+                    <ul class="dropdown-menu ms-1">
+                        <li>
+                            <a href="{{route('country.index')}}"><i class="bi bi-card-list me-2"></i> @lang('List')</a>
+                        </li>
+                        <li>
+                            <a href="{{route('country.create')}}"><i class="bi bi-plus-circle me-2"></i> @lang('Add')</a>
+                        </li>
+                    </ul>
+                </div>
+                @endif
+                @if (!Gate::denies('state_index'))
+                <div id="menu_states" class="btn-group nav-item dropend">
+                    <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-map"></i><span>@lang('States')</span>
+                    </button>
+                    <ul class="dropdown-menu ms-1">
+                        <li>
+                            <a href="{{route('state.index')}}"><i class="bi bi-card-list me-2"></i> @lang('List')</a>
+                        </li>
+                        <li>
+                            <a href="{{route('state.create')}}"><i class="bi bi-plus-circle me-2"></i> @lang('Add')</a>
+                        </li>
+                    </ul>
+                </div>
+                @endif
+                @if (!Gate::denies('city_index'))
+                <div id="menu_cities" class="btn-group nav-item dropend">
+                    <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-geo-alt"></i><span>@lang('Cities')</span>
+                    </button>
+                    <ul class="dropdown-menu ms-1">
+                        <li>
+                            <a href="{{route('city.index')}}"><i class="bi bi-card-list me-2"></i> @lang('List')</a>
+                        </li>
+                        <li>
+                            <a href="{{route('city.create')}}"><i class="bi bi-plus-circle me-2"></i> @lang('Add')</a>
+                        </li>
+                    </ul>
+                </div>
+                @endif
+                @if (!Gate::denies('role_index'))
+                <div id="menu_roles" class="btn-group nav-item dropend">
+                    <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-people"></i><span>@lang('Roles')</span>
+                    </button>
+                    <ul class="dropdown-menu ms-1">
+                        <li>
+                            <a href="{{route('role.index')}}"><i class="bi bi-card-list me-2"></i> @lang('List')</a>
+                        </li>
+                        <li>
+                            <a href="{{route('role.create')}}"><i class="bi bi-plus-circle me-2"></i> @lang('Add')</a>
+                        </li>
+                    </ul>
+                </div>
+                @endif
+                <hr class="sidebar-divider my-0">
+
+                <div id="menu_profile" class="nav-item">
+                    <a href="{{route('user.profile')}}" class="nav-link">
+                        <i class="bi bi-gear"></i><span>@lang('Profile')</span>
+                    </a>
+                </div>
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+            </ul>
             {{-- End of Sidebar --}}
 
             {{-- Content Wrapper --}}

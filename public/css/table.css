@@ -35,9 +35,22 @@ div.dataTables_wrapper div.dataTables_filter label {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.25rem rgb(241 193 219 / 46%);
 }
+.btn-table {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0 0.2rem;
+}
 /* MD Desde 921px en adelante */
 @media (min-width: 768px) {
     .dataTables_wrapper > div > .col-sm-12 .col-md-6 {
         display: block;
     }
 }
+
+@media screen and (max-width: 767px) {
+    div.dataTables_wrapper div.dataTables_length, div.dataTables_wrapper div.dataTables_filter, div.dataTables_wrapper div.dataTables_info, div.dataTables_wrapper div.dataTables_paginate {
+        padding-bottom: 0.5rem;
+        text-align: left !important;
+    }
+}
+
