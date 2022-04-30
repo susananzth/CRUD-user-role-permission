@@ -1,23 +1,125 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-    $("select").select2({
+    $("#menu_users").addClass("active");
+    $("#code, #country").select2({
+        placeholder: 'Selecctione',
+        language: "es",
+    });
+    $("#role").select2({
         placeholder: 'Selecctione',
         language: "es",
         multiple: true,
         allowClear: true
     });
     $('.select2-container--default').addClass('form-control w-auto p-0');
-    $("select").val('').trigger('change');
+    $("#role, #code, #country").val('').trigger('change');
     var button_reset = document.querySelector('.btn-reset');
     button_reset.addEventListener('click', event => {
-        $("select").val('').trigger('change');
+        $("#role, #code, #country").val('').trigger('change');
+        $("#state, #city").val("").trigger("change").attr('disabled', true);
     });
+    $(".numbers").on("keypress", function(tecla) {
+        let reg = /^[0-9]*$/;
+        if (reg.test(tecla.key)) {
+            return true;
+        }
+        return false;
+    });
+    $("#country").on("change", function() {
+        $("#state, #city").html("").attr("disabled", true);
+        $("#country").attr("disabled", true);
+        $("#spinner_state").show();
+        let id = $("#country").val();
+        if (id != "") {
+            // Almacena el CSRF-TOKEN en la cabecera del ajax.
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "../states/" + id,
+            })
+            .done(function(data) {
+                let html = `<option value="">${trans_select}</option>`;
+                data.states.forEach(element => {
+                    html += `<option value="${element.id}">${element.name}</option>`;
+                });
+                $("#state").html(html).attr('disabled', false);
+                $("#state").select2({
+                    placeholder: 'Selecctione',
+                    language: "es",
+                });
+                $("#state").next(".select2").addClass("form-control w-auto p-0");
+                $("#country").attr("disabled", false);
+                $('#spinner_state').hide();
+            })
+            .fail(function() {
+                location.reload();
+            });
+        }
+    });
+    $("#state").on("change", function() {
+        $("#country, #state").attr("disabled", true);
+        $("#city").html("").attr("disabled", true);
+        $("#spinner_city").show();
+        let id = $("#state").val();
+        if (id != "") {
+            // Almacena el CSRF-TOKEN en la cabecera del ajax.
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "../cities/" + id,
+            })
+            .done(function(data) {
+                let html = `<option value="">${trans_select}</option>`;
+                data.cities.forEach(element => {
+                    html += `<option value="${element.id}">${element.name}</option>`;
+                });
+                $("#city").html(html).attr('disabled', false);
+                $("#city").select2({
+                    placeholder: 'Selecctione',
+                    language: "es",
+                });
+                $("#city").next(".select2").addClass("form-control w-auto p-0");
+                $("#country, #state").attr("disabled", false);
+                $("#spinner_city").hide();
+            })
+            .fail(function() {
+                location.reload();
+            });
+        }
+    });
+    $.validator.addMethod("lettersonly", function(value, element, regexp) {
+        var re = new RegExp(/^[\s\p{L}-]*$/u);
+        return this.optional(element) || re.test(value);
+    }, "Ingrese solo letras, por favor.");
+    $.validator.addMethod("alpha_num", function(value, element, regexp) {
+        var re = new RegExp(/^([a-zA-Z0-9]+)$/);
+        return this.optional(element) || re.test(value);
+    }, "El usuario solo debe contener letras y números.");
+
     $("#form_create").validate({
         onkeyup: false,
         errorClass: "invalid",
         validClass: "success",
         rules: {
-            title: { required: true, maxlength: 255 },
-            select: { required: false }
+            firstname: { required: true, lettersonly: true, maxlength: 200 },
+            lastname: { required: true, lettersonly: true, maxlength: 200 },
+            username: { required: true, alpha_num: true, maxlength: 30 },
+            email: { required: true, email:true, maxlength: 200 },
+            password: { required: true, minlength:8, maxlength: 50 },
+            code: { required: false, number: true },
+            phone: { required: false, number: true, maxlength: 25 },
+            country: { required: false, number: true },
+            state: { required: false, number: true },
+            city: { required: false, number: true },
+            address: { required: false, maxlength: 255 },
+            role: { required: false }
         },
         errorPlacement : function(error, element) {
             $(element).closest('.input-group').next('.help-block').html(error.html());

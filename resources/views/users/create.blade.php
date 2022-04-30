@@ -7,106 +7,152 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
     <script src="{{ asset('js/JQ-Validate.js') }}" defer></script>
-    <script src="{{ asset('js/roles/create.js') }}" defer></script>
+    <script src="{{ asset('js/users/create.js') }}" defer></script>
+    <script>
+        var trans_select = "@lang('Select')";
+    </script>
+    <style>
+        .spinner-animation{
+            color: black !important;
+            cursor: pointer;
+            position: relative;
+            right: 38px;top: 6px;
+            width: 1px;
+        }
+    </style>
 @endsection
 
 <x-app-layout>
     <div class="card m-3">
         <div class="card-header fs-5">
-            Registrar Usuario
+            @lang('Add User')
         </div>
         <form id="form_create" action="{{route('user.store')}}" method="post">
             @csrf
             <div class="card-body">
-                @include('partials.alerts')
+                <x-jet-validation-errors/>
                 <div  class="row">
-                    <p class="m-0 italic">Los campos marcados con * son requerido</p>
+                    <p class="m-0 fst-italic">@lang('Fields marked with * are required')</p>
                     <div class="col-12 col-md-6 mt-2">
-                        <label for="first_name">Nombres *</label>
+                        <label for="firstname">@lang('Firstname') *</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-person-lines-fill me-1"></i></span>
-                            <input id="first_name" type="text" name="first_name" placeholder="Nombres del Usuario" autocomplete="given-name"
-                             maxlength="150" class="form-control">
+                            <input id="firstname" type="text" name="firstname" autocomplete="given-name"
+                            value="{{old('firstname')}}" autofocus class="form-control">
                         </div>
                         <span class="help-block"></span>
                     </div>
                     <div class="col-12 col-md-6 mt-2">
-                        <label for="last_name">Apellidos *</label>
+                        <label for="lastname">@lang('Lastname') *</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-person-lines-fill me-1"></i></span>
-                            <input id="last_name" type="text" name="last_name" placeholder="Apellidos del Usuario" autocomplete="family-name"
-                             maxlength="150" class="form-control">
+                            <input id="lastname" type="text" name="lastname" autocomplete="family-name"
+                            value="{{old('lastname')}}" class="form-control">
                         </div>
                         <span class="help-block"></span>
                     </div>
                     <div class="col-12 col-md-6 mt-2">
-                        <label for="username">Usuario *</label>
+                        <label for="username">@lang('Username') *</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-person-circle me-1"></i></span>
-                            <input id="username" type="text" name="username" placeholder="Nombre de usuario" autocomplete="username"
-                             maxlength="30" class="form-control">
+                            <input id="username" type="text" name="username" autocomplete="username"
+                            value="{{old('username')}}" class="form-control">
                         </div>
                         <span class="help-block"></span>
                     </div>
+                    <div class="col-md-6 mt-2 d-none d-md-block">
+                    </div>
                     <div class="col-12 col-md-6 mt-2">
-                        <label for="email">Correo *</label>
+                        <label for="email">@lang('Email') *</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-envelope me-1"></i></span>
-                            <input id="email" type="email" name="email" placeholder="ejemplo@empresa.com" autocomplete="email"
-                             maxlength="200" class="form-control">
+                            <input id="email" type="email" name="email" placeholder="ejemplo@empresa.com"
+                            autocomplete="email" value="{{old('email')}}" class="form-control">
                         </div>
                         <span class="help-block"></span>
                     </div>
                     <div class="col-12 col-md-6 mt-2">
-                        <label for="password">Contraseña *</label>
+                        <label for="password">@lang('Password') *</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-shield me-1"></i></span>
-                            <input id="password" type="password" name="password" placeholder="*********" autocomplete="new-password"
-                             maxlength="20" class="form-control">
+                            <input id="password" type="password" name="password" placeholder="*********"
+                            autocomplete="new-password" class="form-control">
                         </div>
                         <span class="help-block"></span>
                     </div>
                     <div class="col-12 col-md-6 mt-2">
-                        <label for="repeat_password">Repetir Contraseña *</label>
+                        <label for="code">@lang('Phone code')</label>
                         <div class="input-group">
-                            <span class="input-group-text"><i class="bi bi-shield me-1"></i></span>
-                            <input id="repeat_password" type="password" name="repeat_password" placeholder="*********" autocomplete="off"
-                             maxlength="20" class="form-control">
+                            <span class="input-group-text pe-3"><i class="bi bi-telephone-plus-fill"></i></span>
+                            <select id="code" name="code" class="form-control select-2">
+                                @foreach ($countries as $item)
+                                    <option value="{{$item->id}}" {{old('code') == $item->id ? 'selected' : ''}}>
+                                        +{{$item->phone_code}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                         <span class="help-block"></span>
                     </div>
                     <div class="col-12 col-md-6 mt-2">
-                        <label for="code">Código de país *</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="bi bi-globe2 me-1"></i></span>
-                            <input id="code" type="text" name="code" placeholder="+51" autocomplete="tel-country-code"
-                             maxlength="4" class="form-control">
-                        </div>
-                        <span class="help-block"></span>
-                    </div>
-                    <div class="col-12 col-md-6 mt-2">
-                        <label for="phone">Teléfono *</label>
+                        <label for="phone">@lang('Phone')</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-telephone me-1"></i></span>
                             <input id="phone" type="tel" name="phone" placeholder="999666333" autocomplete="tel"
-                             maxlength="9" class="form-control">
+                            value="{{old('phone')}}" class="form-control numbers">
                         </div>
                         <span class="help-block"></span>
                     </div>
-                    <div class="col-12 mt-2">
-                        <label for="address">Dirección *</label>
+                    <div class="col-12 col-md-6 mt-2">
+                        <label for="country">@lang('Country')</label>
                         <div class="input-group">
-                            <span class="input-group-text"><i class="bi bi-envelope me-1"></i></span>
-                            <input id="address" type="text" name="address" placeholder="Calle, Av, Urb, Ciudad" autocomplete="street-address"
-                             maxlength="250" class="form-control">
+                            <span class="input-group-text pe-3"><i class="bi bi-globe"></i></span>
+                            <select id="country" name="country" class="form-control select-2">
+                                @foreach ($countries as $item)
+                                    <option value="{{$item->id}}" {{old('country') == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="col-12 col-md-6 mt-2">
+                        <label for="state">@lang('State')</label>
+                        <div class="input-group">
+                            <span class="input-group-text pe-3"><i class="bi bi-map"></i></span>
+                            <select id="state" name="state" class="form-control select-2" disabled>
+                            </select>
+                            <div id="spinner_state" class="spinner-animation" style="display: none;">
+                                <span class="spinner-border spinner-border-sm " role="status" aria-hidden="true"></span>
+                            </div>
                         </div>
                         <span class="help-block"></span>
                     </div>
                     <div class="col-12 mt-2">
-                        <label for="select">Rol(es)</label>
+                        <label for="city">@lang('City')</label>
+                        <div class="input-group">
+                            <span class="input-group-text pe-3"><i class="bi bi-geo-alt"></i></span>
+                            <select id="city" name="city" class="form-control select-2" disabled>
+                            </select>
+                            <div id="spinner_city" class="spinner-animation" style="display: none;">
+                                <span class="spinner-border spinner-border-sm " role="status" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="col-12 mt-2">
+                        <label for="address">@lang('Address')</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-pin-map me-1"></i></span>
+                            <input id="address" type="text" name="address" placeholder="Calle, Av, Urb, Ciudad"
+                            autocomplete="street-address" value="{{old('address')}}" class="form-control">
+                        </div>
+                        <span class="help-block"></span>
+                    </div>
+                    <div class="col-12 mt-2">
+                        <label for="role">@lang('Roles') *</label>
                         <div class="input-group">
                             <span class="input-group-text pe-3"><i class="bi bi-list-ul"></i></span>
-                            <select id="select" name="role[]" class="form-control select-2">
+                            <select id="role" name="role[]" class="form-control select-2">
                                 @foreach ($roles as $item)
                                     <option value="{{$item->id}}">{{$item->title}}</option>
                                 @endforeach
@@ -116,9 +162,9 @@
                 </div>
             </div>
             <div class="card-footer">
-                <a id="cancel" href="{{route('user.index')}}" class="btn btn-secondary"><i class="bi bi-x-circle"></i> Cancelar</a>
-                <button id="submit" type="submit" class="btn btn-primary float-end"><i class="bi bi-save"></i> Guardar</button>
-                <button id="reset" type="reset" class="btn btn-warning btn-reset me-2 float-end"><i class="bi bi-eraser"></i> Restablecer campos</button>
+                <a id="cancel" href="{{route('user.index')}}" class="btn btn-secondary"><i class="bi bi-x-circle"></i> @lang('Cancel')</a>
+                <button id="submit" type="submit" class="btn btn-primary float-end"><i class="bi bi-save"></i> @lang('Save')</button>
+                <button id="reset" type="reset" class="btn btn-warning btn-reset me-2 float-end"><i class="bi bi-eraser"></i> @lang('Reset fields')</button>
             </div>
         </form>
     </div>
